@@ -39,6 +39,42 @@ h1 {
     color: #901C1C;
 }
 
+/******** Carte des photographes ********/
+
+#photographes {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+
+.card {
+    width: 400px;
+    justify-content: center;
+    margin: auto;
+    border: 2px solid black
+}
+
+.header-card {
+    display: flex;
+    flex-direction: column;
+    width: 180px
+}
+
+.avatar {
+    width: 100%;
+}
+.photo-profil {
+    border-radius: 50%
+}
+
+h2 {
+    font-size: 1.2em;
+    width: 100%;
+    color:  rgba(211, 87, 60, 1);
+
+}
+
 .logo {
     font-weight: bold;
     color: #901c1c;
@@ -60,4 +96,9 @@ button {
     border: 0px;
     border-radius: 8px;
     background-color: #Db8876;
+}
+
+img {
+    height: 100px;
+    width: 100px;
 }

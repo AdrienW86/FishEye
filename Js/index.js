@@ -2,7 +2,6 @@
 
     const datas = "/datas.json"
 
-
 class Photographers {
     
     constructor(photographes) {
@@ -19,8 +18,6 @@ class Photographers {
 
      createCardforPhotographers() {
         
-
-                
                 
      }
 }
@@ -92,14 +89,12 @@ fetch(datas)
                     let headerCard = document.createElement('div')
                         headerCard.setAttribute("class","header-card")
                         card.appendChild(headerCard)
-                        headerCard.textContent = "header"
             
                             // Conteneur de la photo
             
                         let avatar = document.createElement('div')
                             avatar.setAttribute("class", "avatar")
                             headerCard.appendChild(avatar)
-                            avatar.textContent = " avatar"
             
                                 // Photo de profil
             
@@ -156,13 +151,18 @@ fetch(datas)
                         let tag = document.createElement('ul')
                             tag.setAttribute("class", "footer-tag")
                             footerCard.appendChild(tag) 
-                            tag.innerHTML = photographers.tags
-            
-            
+                                                                                                                                          
+                            let items = photographers.tags
 
-
+                           items.forEach(function(item) {
+                                let li = document.createElement('li')
+                                li.setAttribute("class","footer-tag-item");
+                                tag.appendChild(li)
+                                li.innerHTML = "#"+ item
+                            })                                                                                                                                                                                                                                                                                                                                                                                                               
+            
               //  return photographers
-            } 
+                                }
 
             for( let y = 0; y < medias.length; y++) {
                 const medias = data.media[y]
