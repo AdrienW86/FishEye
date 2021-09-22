@@ -62,7 +62,8 @@ h1 {
 .header-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center; 
+    text-decoration: none; 
 }
 
 .avatar {

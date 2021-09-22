@@ -79,9 +79,14 @@ fetch(datas)
             
                         // Header de la carte
                    
-                    let headerCard = document.createElement('div')
+                    let headerCard = document.createElement('a')
                         headerCard.setAttribute("class","header-card")
                         card.appendChild(headerCard)
+                        headerCard.href = "./photographes.html"
+
+                        let headerCardContent = document.createElement('div')
+                        headerCardContent.setAttribute("class","header-card-content")
+                        headerCard.appendChild(headerCardContent)
             
                             // Conteneur de la photo
             
