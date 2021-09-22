@@ -37,54 +37,86 @@ li {
 
 h1 {
     color: #901C1C;
+    position: relative;
+    left: 80px;
+    bottom: 25px;
+    font-size: 2.5em;
 }
 
 /******** Carte des photographes ********/
 
 #photographes {
+    padding-top: 80px;
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center;
+    margin: auto;
 }
-
 
 .card {
     width: 400px;
     justify-content: center;
-    margin: auto;
-    border: 2px solid black
+    margin: 20px;
 }
 
 .header-card {
     display: flex;
     flex-direction: column;
-    width: 180px
+    justify-content: center;  
 }
 
 .avatar {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
+
 .photo-profil {
     border-radius: 50%
 }
 
 h2 {
-    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    font-size: 2.7em;
     width: 100%;
     color:  rgba(211, 87, 60, 1);
-
 }
 
-.logo {
-    font-weight: bold;
+.main-card {
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+}
+
+h3 {
+    text-align: center;
     color: #901c1c;
-    font-size: 2em;
+}
+
+.description {
+    text-align: center;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.price {
+    text-align: center;
+    color: rgba(117, 117, 117, 1);
+}
+
+ul.footer-tag {
+    display: flex;
+    width: 80%;
+    margin: 10%;
+    justify-content: justify;
 }
 
 svg {
    fill: #901C1C;
    font-weight: bold;
    position: relative;
+   right: 10px;
    top: 5px
 }
 
@@ -99,6 +131,6 @@ button {
 }
 
 img {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
 }

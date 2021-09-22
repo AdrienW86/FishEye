@@ -67,22 +67,15 @@ fetch(datas)
                 const photographers = data.photographers[i]
                 console.log(photographers.name)
 
-
                 let list = document.getElementById("photographes")   // Notre point d'attache dans le DOM
-    
-                let box = document.createElement("section")         // Création du conteneur de la liste des photographes
-                    box.setAttribute("class", "liste_photographes")
-            
-                     list.appendChild(box)
-            
-            
+              
                 // Pour chaque photographes, on créé une section avec ses infos
             
                     // Carte pour chaque photographe
             
                 let card = document.createElement('section'); 
                     card.setAttribute("class","card")
-                    box.appendChild(card) 
+                    list.appendChild(card) 
             
                         // Header de la carte
                    
@@ -117,14 +110,13 @@ fetch(datas)
                     let mainCard = document.createElement('div')
                         mainCard.setAttribute("class", "main-card")
                         card.appendChild(mainCard)
-                        mainCard.textContent = "menu"
             
                             // Ville du photographe
                     
                         let city = document.createElement('h3')
                             city.setAttribute("class", "city")
                             mainCard.appendChild(city)
-                            city.innerHTML = photographers.city
+                            city.innerHTML = photographers.city + ", " + photographers.country
             
                             // Description du photographe
             
@@ -138,7 +130,7 @@ fetch(datas)
                         let price = document.createElement('p')
                             price.setAttribute("class", "price")
                             mainCard.appendChild(price)
-                            price.innerHTML = photographers.price
+                            price.innerHTML = photographers.price + "€/jour"
             
                             // Footer de la carte
             
