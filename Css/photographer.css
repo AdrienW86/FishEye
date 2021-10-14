@@ -1,0 +1,116 @@
+/***** Bannière *****/
+body {
+    margin: 2.5%
+}
+.logo {
+    margin-bottom: 30px;
+}
+
+#banner {
+    width: 100%
+}
+.banner-photographer {
+    display: flex;
+   
+    background: rgba(250, 250, 250, 1);
+}
+
+    /*** Bloc Infos ***/
+
+.description-photographer {
+    width: 50%; 
+    padding-left: 30px;  
+}
+
+h2 {
+    font-size: 2.5em;
+    color:  rgba(211, 87, 60, 1);
+}
+
+h3 {
+    color: #901c1c;
+}
+
+.footer-tag {
+    display: flex;
+    width: 400px; 
+    padding: 0
+}
+
+li.footer-tag-item{  
+    list-style: none;
+    height: 22px;
+    background: white;
+    border: 0.5px solid #c4c4c4;
+    border-radius: 11px;
+    color: #901C1C;
+    font-weight: bold;
+    padding: 2px;
+    margin-right: 5px;
+}
+
+    /*** Bloc Bouton ***/
+
+.box-btn {
+    display: flex;
+    width: 20%;
+}
+.modal-btn {
+    height: 34px;
+    width: 170px;
+    background-color: #901C1C;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-radius: 5px
+}
+    /*** Bloc Image***/
+
+.single-avatar {
+    width: 30%;
+}
+
+.photo-profil {
+    display: flex;
+    position: relative;
+    top: 17px;
+    right: 25px;
+    margin-left: auto;
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+
+#liste_media {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.image-card {
+    width: 350px;
+    height: 350px;
+    margin-bottom: 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+img.image-single-photographer {
+    object-fit: cover;
+    width: 350px;
+    height: 300px;
+}
+
+.details_images {
+    display: flex;
+    color:  rgba(144, 28, 28, 1);
+    font-weight: bold;
+    justify-content: space-between
+}

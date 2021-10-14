@@ -24,11 +24,16 @@ ul {
 
 li {
     list-style: none;
+}
+
+.tags {
+    
     height: 22px;
     margin-left: 3px;
     padding: 3px;
     left: 505px;
     top: 58px;
+    background: white;
     border: 0.5px solid #c4c4c4;
     border-radius: 11px;
     color: #901C1C;
@@ -114,11 +119,22 @@ h3 {
     color: rgba(117, 117, 117, 1);
 }
 
-.footer-tag{
+.footer-tag {
     display: flex;
     width: 400px;
     justify-content: center;
-    padding: 0
+    padding:0
+}
+
+li.footer-tag-item{   
+    height: 22px;
+    background: white;
+    border: 0.5px solid #c4c4c4;
+    border-radius: 11px;
+    color: #901C1C;
+    font-weight: bold;
+    padding: 2px;
+    margin-right: 5px;
 }
 
 svg {
@@ -129,7 +145,7 @@ svg {
    top: 5px
 }
 
-.button-content {
+.button-content, .modal-btn {
     font-size: 1.1em;
     font-weight: bold;
     height: 30px;
@@ -143,3 +159,4 @@ img {
     height: 200px;
     width: 200px;
 }
+
