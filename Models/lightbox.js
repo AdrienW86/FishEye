@@ -1,3 +1,4 @@
+
  /**
   * @property {HTMLElement} element
   * @property {string[]} images
@@ -5,14 +6,19 @@
   */
 
 export default class LightBox {
-
+   
     static init() {
-        const links = Array.from(document.querySelectorAll('video[src$=".mp4"], img[src$=".jpg"], a[href$=".jpeg"]'))
-        const gallery = links.map(link => link.getAttribute('src'))
        
+       // let links = document.querySelectorAll('.image-single-photographer')
+      
+      const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$="mp4"]'));
+        console.log(links)
+
+        const gallery = links.map(link => link.getAttribute('src'));
+             
             links.forEach(link => link.addEventListener('click', e => {
                 e.preventDefault()
-                new LightBox(e.currentTarget.getAttribute('src'), gallery)               
+                new LightBox(e.CurrentTarget.currentSrc.getAttribute('src'), gallery)               
             }))
     }
 
@@ -21,12 +27,12 @@ export default class LightBox {
      * @param {string[]} gallery Chemins des images de la lightbox
      */
 
-    constructor(url, images, videos) {
+    constructor(url, images, ) {
         this.element = this.buildDom(url)
         this.images = images
-        this.videos = videos
+    //    this.videos = videos
         this.loadImage(url)
-        //this.loadVideo(url)
+    //    this.loadVideo(url)
         this.onKeyUp = this.onKeyUp.bind(this)
         document.body.appendChild(this.element)
         document.addEventListener('keyup', this.onKeyUp)
@@ -39,24 +45,44 @@ export default class LightBox {
     loadImage(url) {
         this.url = null
         const image = new Image()
+        
             const container = this.element.querySelector('.lightbox__container')
             const loader = document.createElement('div')
                   loader.classList.add('lightbox__loader')
                     container.innerHTML = '' // On vide la précédente image
                     container.appendChild(loader)
         image.onload = () => {
+        //    container.removeChild(loader)
+            container.appendChild(image)
+            this.url = url
+           console.log(url) 
+           console.log(this.element)
+           console.log(this.images)
+           
+           
+        }
+        image.src = url
+        }
+       
+       
+
+  /*  loadVideo(url) {
+        this.url = null
+        const video = new Image()
+            const container = this.element.querySelector('.lightbox__container')
+            const loader = document.createElement('div')
+                  loader.classList.add('lightbox__loader')
+                    container.innerHTML = '' // On vide la précédente image
+                    container.appendChild(loader)
+        video.onload = () => {
             container.removeChild(loader)
             container.appendChild(image)
             this.url = url
         }
-        image.src = url
+       
+      //  video.src = url
     }
-
-
-
-    
-
-
+*/
 
 
     /**
@@ -129,12 +155,11 @@ export default class LightBox {
             <button class="lightbox-prev"> </button>
             <div class="lightbox__container"> </div>` 
         dom.querySelector('.lightbox-close').addEventListener('click', this.close.bind(this))
-        dom.querySelector('.lightbox-next').addEventListener('click', this.next.bind(this))
+       dom.querySelector('.lightbox-next').addEventListener('click', this.next.bind(this))
         dom.querySelector('.lightbox-prev').addEventListener('click', this.prev.bind(this))
 
         return dom
     }
-
 }
 
 LightBox.init()

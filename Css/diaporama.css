@@ -1,0 +1,11 @@
+#diaporama li.activ img {
+    display: block
+}
+
+#diaporama li {
+    list-style-type: none;
+}
+
+#diaporama li img {
+    display: none
+}

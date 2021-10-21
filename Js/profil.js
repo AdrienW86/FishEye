@@ -8,11 +8,13 @@ import LightBox from "../Models/lightbox.js"
         
 const datas = "/datas.json"
 
+
 // Récupération des données
              
 fetch(datas)  
     .then(response => response.json())
     .then(data => {
+        
         
     // Récupération de l'id du photographe dans l'url
         let params = new URL (document.location).searchParams  
@@ -31,6 +33,7 @@ fetch(datas)
             let idMedia = media.photographerId;
             return idMedia === selectedPhotographer.id
         })
+       
         const liked = document.querySelectorAll(".btn-like")
         liked.forEach((btn) => btn.addEventListener("click", Like)) 
 
@@ -50,7 +53,8 @@ fetch(datas)
                         <path d="M9.125 18.35L7.85625 17.03C3.35 12.36 0.375 9.28 0.375 5.5C0.375 2.42 2.4925 0 5.1875 0C6.71 0 8.17125 0.81 9.125 2.09C10.0787 0.81 11.54 0 13.0625 0C15.7575 0 17.875 2.42 17.875 5.5C17.875 9.28 14.9 12.36 10.3938 17.04L9.125 18.35Z" fill="black"/>
                     </svg>`
                    
-            sticker.innerHTML = total + " " + svg + " " + selectedPhotographer.price + "€ / jour"             
+            sticker.innerHTML = total + " " + svg + " " + selectedPhotographer.price + "€ / jour"      
+            
         })
        
 // Création de la carte de visite du photographe
@@ -62,17 +66,43 @@ fetch(datas)
 
     selectedMedia.forEach((media)=> {                                 
             const listOfMedia = new Media(media)         
-                  listOfMedia.affichage()     
-                  
+                  listOfMedia.affichage()  
     })  
-    const btn = document.querySelectorAll('.btn-card')
-    btn.forEach((btn) => btn.addEventListener('click', openLightbox))
+    const btn = document.querySelectorAll('.image-single-photographer')
+    
 
-    function openLightbox() {
-       console.log('lightbox en marche') 
+   
+
+       
+    btn.forEach((btn) => btn.addEventListener('click', openLightbox))
+  
+    console.log(selectedMedia)
+
+
+    function openLightbox(e) {
+        console.log(e)
+        
+       let photo = e.target.currentSrc
+       
+       
+       console.log(photo)
+     
+      
+        const lightbox = new LightBox(photo)
+              lightbox.loadImage()
+    
+       
+
+        
+              
+    
+     
+     
+             
     } 
 })    
      
 
+ 
 
-
+ 

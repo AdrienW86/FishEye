@@ -9,7 +9,7 @@ export default class Media {
         this.tags = data.tags
         this.likes = data.likes 
         this.date = data.date
-        this.price = data.price        
+        this.price = data.price    
     }
     affichage() {
    
@@ -43,9 +43,9 @@ export default class Media {
 
                 let video = document.createElement("video")
                     video.setAttribute("class", "video-single-photographer")
-                 //   video.setAttribute("controls", video.src)
+                    video.setAttribute("controls", video.src)
                     video.src = "../images/"+ this.photographerId + "/" + this.video + "#t=0.1"
-                  //  video.setAttribute("type","video/mp4")
+                    video.setAttribute("type","video/mp4")
                     buttonCard.appendChild(video) 
                     
                 // Contrôle de la vidéo
@@ -74,7 +74,7 @@ export default class Media {
                         likes.setAttribute("class", "btn-like")
                         likes.setAttribute("type", "button")
                         likes.innerHTML = svg
-                        detailsImage.appendChild(likes)                        
+                        detailsImage.appendChild(likes) 
     } 
 }
    
