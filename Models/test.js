@@ -1,4 +1,4 @@
-class Diaporama {
+export default class Diaporama {
 
     constructor(listImage, selector) {
 
@@ -27,7 +27,6 @@ class Diaporama {
         next.setAttribute("class", "next-button");
         next.innerHTML = ">"
         this.element.appendChild(next)
-
         this.preparEvent();
         this.autoPlay();
     }
@@ -38,9 +37,7 @@ class Diaporama {
 
     play() {
         this.current = this.listImage[0]
-        document.querySelector(this.selector + " li:first-child").setAttribute("class", "activ")
-        
-            
+        document.querySelector(this.selector + " li:first-child").setAttribute("class", "activ")           
     }
 
     next() {

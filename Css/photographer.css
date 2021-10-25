@@ -104,7 +104,7 @@ li.footer-tag-item{
     cursor: pointer;
 }
 
-img.image-single-photographer, .video-single-photographer {
+.media-single-photographer {
     object-fit: cover;
     width: 350px;
     height: 300px;
