@@ -1,8 +1,13 @@
 body {
     margin: 0px
 }
+.lightbox-title {
+    width: 90%;
+    text-align: left;
+    color: rgba(144, 28, 28, 1) 
+}
 
-.grid {
+.box {
     padding: 16px;
     display: grid;
     justify-content: center;
@@ -10,7 +15,7 @@ body {
     grid-gap: 16px;
 }
 
-.grid img {
+.box img {
     display: block;
     width: 100%;
 }
@@ -72,13 +77,16 @@ body {
 }
 
 .lightbox__container img {
-    max-width: 100%;
-    height: auto;
+    width: 90%;
+    height: 80vh;
+    
+
     animation: lightboxIn .5s;
 }
 
 .lightbox__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-left: 50px;

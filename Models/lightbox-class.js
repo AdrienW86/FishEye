@@ -2,74 +2,71 @@ export default class LightBox {
  
     static init() {
   
-        let links = Array.from(document.querySelectorAll(".media-single-photographer"));    
-            console.log(links); 
+        let links =  Array.from(document.querySelectorAll(".media-single-photographer"));           
+        let titles = Array.from(document.querySelectorAll(".titre-media"));
         let gallery = links.map(link => link.getAttribute("src"));
-            console.log(gallery);
+            titles = titles.map(title => title.innerHTML)
+
+            console.log(titles)
             
         links.forEach(link => 
             link.addEventListener('click', function(e)   {
             e.preventDefault();
             console.log(e.currentTarget)
-            new LightBox(e.currentTarget.getAttribute("src"), gallery)
-            })
-           
+            new LightBox(e.currentTarget.getAttribute("src"), 
+            gallery, titles )
+            })          
         )
     } 
     
-
-
-
-
-
-    constructor(url, gallery)
+    constructor(url, gallery, titles, currentTitle)
      {  
         this.element = this.buildDom(url) 
         this.gallery = gallery 
-        this.loadImage(url)
+        this.titles = titles
+        this.currentTitle = currentTitle
+        this.loadImage(url, currentTitle)
         this.onKeyUp = this.onKeyUp.bind(this)
-        document.body.appendChild(this.element)
+        const box = document.querySelector('.box')
+        box.appendChild(this.element)
         document.addEventListener('keyup', this.onKeyUp)
     }
    
-   
-
-
-    loadImage(url) {
+    loadImage(url, currentTitle) {
         this.url = null
-        const image = new Image()
+        this.currentTitle = null    
         const container = this.element.querySelector('.lightbox__container')
-        const loader = document.createElement('div')
-        const video = document.createElement('video')
-        video.setAttribute('controls', "")
-        loader.classList.add('lightbox__loader')
-        container.innerHTML = ""
-        container.appendChild(loader)
-        image.onload = () => {         
-            container.removeChild(loader)  
-            container.appendChild(image)
-            this.url = url 
-          }
-          image.src = url
-       //   video.src = url
+        const loader = document.createElement('div') 
+              loader.classList.add('lightbox__loader')       
+        const p = document.createElement('p')
+              p.classList.add('lightbox-title')
+              container.innerHTML = ""      
+              container.appendChild(loader)
+              console.log(url)
+        if(url.includes("jpg")) {
+            const image = new Image()  
+            image.onload = () => {         
+                container.removeChild(loader)  
+                container.appendChild(image)
+                container.appendChild(p)
+                this.url = url 
+                this.currentTitle = currentTitle
+            }
+            image.src = url
+            p.innerHTML = currentTitle
+        }else if (url.includes("mp4")){ 
+            const video = document.createElement('video')
+            video.onload = () => {         
+                container.removeChild(loader)  
+                container.appendChild(video)
+                this.url = url 
+                this.currentTitle = currentTitle
+            }                
+            video.src = url
+            video.setAttribute('controls', "")   
+        }
     }
-       
-
-
-
-     
-        
-           
-           
-              //      container.innerHTML = '' // On vide la précédente image   *//*
-                    
-       
-       
-   
-       
-       
-    
-
+                                                                                               
     onKeyUp(e) {
         if (e.key === 'Escape') {
             this.close(e)
@@ -79,13 +76,16 @@ export default class LightBox {
             this.next(e)
         }
     }
+
     close(e) {
         e.preventDefault()
         this.element.classList.add('fadeOut')
         window.setTimeout(() => {
+            console.log(this.element.parentElement)
          this.element.parentElement.removeChild(this.element)   
         },500)
         document.removeEventListener('keyup', this.onKeyUp) // On supprime l'évènement
+        location.reload()
     }
 
     next(e) {
@@ -95,8 +95,10 @@ export default class LightBox {
            i = -1 
         }
         this.loadImage(this.gallery[i + 1])
-    }
 
+        let boxTitle = this.titles.findIndex(title => title === this.title)
+            this.titles[boxTitle + 1]
+    }
 
     prev(e) {
         e.preventDefault()
@@ -113,15 +115,13 @@ export default class LightBox {
      */
 
     buildDom(url) 
-    {
+    {   
         const dom = document.createElement('div')
               dom.classList.add('lightbox')
               dom.innerHTML = `<button class="lightbox-close">       
                                <button class="lightbox-next"> </button>
                                <button class="lightbox-prev"> </button>
-                                    <div class="lightbox__container"> 
-                                     
-                                    </div>` 
+                               <div class="lightbox__container"> </div>` 
               dom.querySelector('.lightbox-close').addEventListener('click', this.close.bind(this))
               dom.querySelector('.lightbox-next').addEventListener('click', this.next.bind(this))
               dom.querySelector('.lightbox-prev').addEventListener('click', this.prev.bind(this))

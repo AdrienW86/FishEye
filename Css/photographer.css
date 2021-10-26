@@ -6,7 +6,6 @@ body {
 .logo {
     margin-bottom: 30px;
 }
-
 #banner {
     width: 100%
 }
@@ -67,6 +66,12 @@ li.footer-tag-item{
     padding-top: 10px;
     border-radius: 5px
 }
+
+.modal-btn:hover {
+    cursor: pointer;
+    color: black;
+    background: #DB8876;     
+}
     /*** Bloc Image***/
 
 .single-avatar {
@@ -125,7 +130,11 @@ li.footer-tag-item{
  button.btn-like {
     background-color: white;
     border: 0px
- }
+}
+
+button.btn-like:hover {
+    cursor: pointer;
+}
 
 span {   
     fill: red;
@@ -151,3 +160,84 @@ span {
     position: relative;
     margin-right: 150px
 }
+
+/***** Modal *****/
+
+.modal {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(219, 136, 118, 1);    
+}
+
+.close-modal-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: url(../images/svg/close-modal.svg) center center / 100% 100% no-repeat transparent;
+    position: fixed;  
+    top: 20px;
+    right: 20px;
+    z-index: 12;
+}
+
+.modal-header {
+    color: black;
+    font-size: 2.2rem;
+    padding: 2% 2% 0% 5%
+}
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    padding: 4px;
+}
+
+input , textarea {
+    height: 40px;
+    border-radius: 4px;
+    margin-top: 4px;
+    border: none
+}
+
+textarea {
+    height: 120px;
+}
+
+.submit-btn {
+    color: white;
+    background: rgba(144, 28, 28, 1);
+    border-radius: 5px;
+    width: 170px;
+    height: 69px;
+    margin-top: 20px;
+}
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.6em;
+    font-weight: bold;
+    color: #bb0013;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+ 
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  

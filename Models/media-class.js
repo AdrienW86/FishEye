@@ -44,7 +44,8 @@ export default class Media {
 
                 let video = document.createElement("video")
                     video.setAttribute("class", "media-single-photographer")
-                 //   video.setAttribute("controls", video.src)
+                    video.setAttribute("tabindex", "0")
+                    video.setAttribute("controls", video.src)
                     video.src = "../images/"+ this.photographerId + "/" + this.video + "#t=0.1"
                     video.setAttribute("type","video/mp4")
                     buttonCard.appendChild(video) 
