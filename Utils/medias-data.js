@@ -26,36 +26,7 @@ fetch(datas)
         let idMedia = media.photographerId;
             return idMedia === selectedPhotographer.id
     });  
-
-        const liked = document.querySelectorAll(".btn-like")
-              liked.forEach((btn) => btn.addEventListener("click", like))
-    
-    function like() {
-
-    }
-    
-    
-          
-    
-    // Etiquette avec le prix et le nombre de likes total
-        let sticker = document.createElement('section')
-            sticker.setAttribute("class","sticker")
-            banner.appendChild(sticker)
-
-        let listLikes = []
-
-    // On additionne chacun des likes de chaque médias dans un tableau
-        selectedMedia.forEach(media => {
-        listLikes.push(media.likes)
-               
-            const total = listLikes.reduce((acc,cur) => acc +cur);        
-            const svg = `<svg width="18" height="19" viewBox="0 0 18 19" fill="none"  class="total-likes" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.125 18.35L7.85625 17.03C3.35 12.36 0.375 9.28 0.375 5.5C0.375 2.42 2.4925 0 5.1875 0C6.71 0 8.17125 0.81 9.125 2.09C10.0787 0.81 11.54 0 13.0625 0C15.7575 0 17.875 2.42 17.875 5.5C17.875 9.28 14.9 12.36 10.3938 17.04L9.125 18.35Z" fill="black"/>
-                        </svg>`
-                       
-            sticker.innerHTML = total + " " + svg + " " + selectedPhotographer.price + "€ / jour"                      
-        })
-
+      
     // Création de la carte de visite du photographe
             selectedPhotographer = new Photographer(selectedPhotographer)
             selectedPhotographer.createCard()
@@ -72,8 +43,56 @@ fetch(datas)
         function openLightbox() {        
             LightBox.init()                            
        } 
-       
-       
+
+    // Etiquette avec le prix et le nombre de likes total
+
+        let sticker = document.createElement('section')
+            sticker.setAttribute("class","sticker")
+            banner.appendChild(sticker)
+
+        let listLikes = []
+        let totalLikes = []
+
+        const svg = `<svg width="18" height="19" viewBox="0 0 18 19" fill="none"  class="total-likes" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.125 18.35L7.85625 17.03C3.35 12.36 0.375 9.28 0.375 5.5C0.375 2.42 2.4925 0 5.1875 0C6.71 0 8.17125 0.81 9.125 2.09C10.0787 0.81 11.54 0 13.0625 0C15.7575 0 17.875 2.42 17.875 5.5C17.875 9.28 14.9 12.36 10.3938 17.04L9.125 18.35Z" fill="black"/>
+                    </svg>`
+
+    // On récupère le nombre total de likes 
+
+        selectedMedia.forEach(media => {
+            listLikes.push(media.likes)     
+                let total = listLikes.reduce((acc,cur) => acc +cur);        
+                    totalLikes.push(total)
+        })
+
+        totalLikes = listLikes.reduce((acc,cur) => acc +cur)
+        console.log(totalLikes)
+
+        sticker.innerHTML = totalLikes + " " + svg + " " + selectedPhotographer.price + "€ / jour" 
+
+    // Ajout des likes
+
+      const likes = document.querySelectorAll('.nombre')
+            likes.forEach(like => {
+                like.addEventListener("click", (event) => {                                                                                                                               
+                    if(!event.target.classList.contains('like')) {
+                        let likePost = parseInt(like.innerHTML) +1
+                            like.innerHTML = likePost
+                            sticker.innerHTML = totalLikes + 1 + " " + svg + " " + selectedPhotographer.price + "€ / jour"
+                            totalLikes ++    
+                                event.target.classList.toggle('like')                         
+                                event.target.classList.remove('dislike')                                                                    
+                    }else{
+                        let dislikePost = parseInt(like.innerHTML) -1
+                            like.innerHTML = dislikePost
+                            sticker.innerHTML = totalLikes -1 + " " + svg + " " + selectedPhotographer.price + "€ / jour"
+                            totalLikes --
+                                event.target.classList.toggle('dislike')
+                                event.target.classList.remove('like')                     
+                    }                                                                                                                                                     
+                })
+            })
+                                                                                
     /***** Création de la Modal *****/
 
         const modal = document.querySelector(".modal")
@@ -118,8 +137,6 @@ fetch(datas)
                 errorName.setAttribute("data-error-visible", "false")
                 errorName.setAttribute("data-error", "2 caractères minimum et pas de chiffres")
                 name.appendChild(errorName)
-
-
 
                   let inputName = document.createElement('input')
                       inputName.setAttribute("id","first") 
@@ -247,11 +264,7 @@ fetch(datas)
                 errors[3].dataset.errorVisible = "false"
               }
               return formOk = true
-        }
-       
-        
-    
-    
+        }                   
 
         validation.addEventListener("submit", (e) => {
 
@@ -261,30 +274,63 @@ fetch(datas)
             console.log("Prénom: " + first.value + " Nom: " + last.value + " Email: " + email.value + " Message: " + text.value)
              alert("Formulaire rempli avec succès !")
              location.reload()
-            closeModal()  
-        
-            }
-    
-        })
+            closeModal()          
+        }    
+    })
+
+    function launchModal() {
+        modal.style.display ="block"
+    }
+
+    function closeModal() {
+        modal.style.display = "none"
+    }
+
+/***** Listbox *****/
+
+const selectElt = document.querySelector("select");
+const selectDiv = document.querySelector(".custom-select")
+
+const newSelect = document.createElement("div");
+      newSelect.classList.add("new-select")
+      newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML;
+
+      selectDiv.appendChild(newSelect)
+
+const newMenu = document.createElement("div")
+      newMenu.classList.add("select-items", "select-hide")
+
+      for(let option of selectElt.options) {        
+            const newOption = document.createElement("div")
+                  newOption.innerHTML = option.innerHTML
 
 
+                newOption.addEventListener("click", function(){
+                    for(let option of selectElt.options) {
+                        if(option.innerHTML === this.innerHTML) {
+                            selectElt.selectedIndex = option.index;
 
+                            newSelect.innerHTML = this.innerHTML
+                            
+                            break;
+                        }
+                    }
+                    newSelect.click()
+                });
 
+                newMenu.appendChild(newOption)
+      }
 
-        function launchModal() {
-            modal.style.display ="block"
-        }
+      selectDiv.appendChild(newMenu)
 
-        function closeModal() {
-          modal.style.display = "none"
-        }
+    newSelect.addEventListener("click", function(e) {
+          e.stopPropagation()
+          this.nextSibling.classList.toggle("select-hide")
 
+          this.classList.toggle("active");          
+    })
 
-
-
-
-
-    })       
+})       
     
           
     
