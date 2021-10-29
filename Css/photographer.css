@@ -124,15 +124,26 @@ li.footer-tag-item{
 }
 
 .titre-media {
-    width: 90%
+    width: 87%
 }
 
- button.btn-like {
-    background-color: white;
-    border: 0px
+ .btn-like {
+    background-color: white; 
+    height: 30px;
+    border: 0px;
+    width: 5%;
+    position: relative;
+    right: 0px;
+    top: 15px;
+}
+.nombre {
+    width: 8%;
+    position: relative;
+    top: 15px;
+    
 }
 
-button.btn-like:hover {
+.btn-like:hover {
     cursor: pointer;
 }
 

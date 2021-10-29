@@ -67,27 +67,15 @@ export default class Media {
                         titleImage.innerHTML = this.title
                         detailsImage.appendChild(titleImage)
                     
-                    let nmbLikes = document.createElement("p")
+                    let nmbLikes = document.createElement("div")
                         nmbLikes.setAttribute("class", "nombre")
                         nmbLikes.innerHTML = this.likes
                         detailsImage.appendChild(nmbLikes)
-                    
-                    let isliked = document.createElement("div")
-                        isliked.setAttribute("class", "not-liked")
-                        detailsImage.appendChild(isliked)
 
-                    let likes = document.createElement("button")
+                    let likes = document.createElement("div")
                         likes.setAttribute("class", "btn-like")
-                        likes.setAttribute("type", "button")
+                        //likes.setAttribute("type", "button")
                         likes.innerHTML = svg
                         detailsImage.appendChild(likes)        
     } 
 }
-   
-
-            
-    
-    
-
-
- 

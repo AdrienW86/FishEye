@@ -74,7 +74,7 @@ fetch(datas)
 
       const likes = document.querySelectorAll('.nombre')
             likes.forEach(like => {
-                like.addEventListener("click", (event) => {                                                                                                                               
+                like.nextSibling.addEventListener("click", (event) => {                                                                                                                               
                     if(!event.target.classList.contains('like')) {
                         let likePost = parseInt(like.innerHTML) +1
                             like.innerHTML = likePost
@@ -331,13 +331,3 @@ const newMenu = document.createElement("div")
     })
 
 })       
-    
-          
-    
-
-    
-        
-       
-
-
-
