@@ -27,6 +27,10 @@ fetch(datas)
             return idMedia === selectedPhotographer.id
     });  
       
+    const openLightbox = () => { 
+        LightBox.init()                              
+   } 
+
     // Création de la carte de visite du photographe
             selectedPhotographer = new Photographer(selectedPhotographer)
             selectedPhotographer.createCard()
@@ -35,14 +39,11 @@ fetch(datas)
             selectedMedia.forEach((media)=> {                                 
                 const listOfMedia = new Media(media)         
                       listOfMedia.affichage()     
-            });
-               
+            });               
                 const btn = document.querySelectorAll('.btn-card')      
-                      btn.forEach((btn) => btn.addEventListener('click', openLightbox))
+                      btn.forEach((btn) => btn.addEventListener('click', openLightbox()))
                                    
-        function openLightbox() {        
-            LightBox.init()                            
-       } 
+    
 
     // Etiquette avec le prix et le nombre de likes total
 
@@ -64,10 +65,8 @@ fetch(datas)
                 let total = listLikes.reduce((acc,cur) => acc +cur);        
                     totalLikes.push(total)
         })
-
         totalLikes = listLikes.reduce((acc,cur) => acc +cur)
         console.log(totalLikes)
-
         sticker.innerHTML = totalLikes + " " + svg + " " + selectedPhotographer.price + "€ / jour" 
 
     // Ajout des likes
@@ -281,7 +280,6 @@ fetch(datas)
     function launchModal() {
         modal.style.display ="block"
     }
-
     function closeModal() {
         modal.style.display = "none"
     }
@@ -290,44 +288,32 @@ fetch(datas)
 
 const selectElt = document.querySelector("select");
 const selectDiv = document.querySelector(".custom-select")
-
 const newSelect = document.createElement("div");
       newSelect.classList.add("new-select")
       newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML;
-
       selectDiv.appendChild(newSelect)
-
 const newMenu = document.createElement("div")
       newMenu.classList.add("select-items", "select-hide")
 
       for(let option of selectElt.options) {        
             const newOption = document.createElement("div")
                   newOption.innerHTML = option.innerHTML
-
-
                 newOption.addEventListener("click", function(){
                     for(let option of selectElt.options) {
                         if(option.innerHTML === this.innerHTML) {
                             selectElt.selectedIndex = option.index;
-
-                            newSelect.innerHTML = this.innerHTML
-                            
+                            newSelect.innerHTML = this.innerHTML                           
                             break;
                         }
                     }
                     newSelect.click()
                 });
-
                 newMenu.appendChild(newOption)
       }
-
       selectDiv.appendChild(newMenu)
-
     newSelect.addEventListener("click", function(e) {
           e.stopPropagation()
           this.nextSibling.classList.toggle("select-hide")
-
           this.classList.toggle("active");          
     })
-
 })       

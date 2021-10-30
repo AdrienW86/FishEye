@@ -8,6 +8,7 @@ export default class LightBox {
             titles = titles.map(title => title.innerHTML)
 
             console.log(titles)
+            console.log(gallery)
             
         links.forEach(link => 
             link.addEventListener('click', function(e)   {
