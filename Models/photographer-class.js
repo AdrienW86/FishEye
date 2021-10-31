@@ -89,6 +89,7 @@ export default class Photographer {
     // Bannière pour chaque photographe
     const bannerPhotographer = document.createElement('section')
     bannerPhotographer.setAttribute('class', 'banner-photographer')
+    // eslint-disable-next-line no-undef
     banner.appendChild(bannerPhotographer)
 
     // Infos de la bannière
