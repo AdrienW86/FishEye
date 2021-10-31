@@ -1,4 +1,3 @@
-
 export default class Photographer {
   constructor (data) {
     this.id = data.id

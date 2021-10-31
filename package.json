@@ -5,5 +5,23 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1"
-  }
+  },
+  "name": "fisheye",
+  "description": "Fisheye front-end",
+  "version": "1.0.0",
+  "main": "index.js",
+ 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrienW86/FishEye.git"
+  },
+  "author": "Adrien W.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrienW86/FishEye/issues"
+  },
+  "homepage": "https://github.com/AdrienW86/FishEye#readme"
 }
