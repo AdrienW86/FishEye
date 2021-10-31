@@ -1,21 +1,19 @@
-import  Photographer  from "/Models/photographer-class.js" 
+import Photographer from '../Models/photographer-class.js'
 
 // Localisation des données
 
-const datas = "/datas.json"
+const datas = '/datas.json'
 
 // Récupération des données
 
-    // Création des cartes de visites des photographes
+// Création des cartes de visites des photographes
 
-    fetch(datas)  
-        .then(response => response.json())
-        .then(data => {
-            let photographers = data.photographers                                                                         
-            photographers.forEach((photographer)=> {
-                const listOfPhotographers = new Photographer(photographer)
-                      listOfPhotographers.creation() 
-            })  
-        })       
-
-
+fetch(datas)
+  .then(response => response.json())
+  .then(data => {
+    const photographers = data.photographers
+    photographers.forEach((photographer) => {
+      const listOfPhotographers = new Photographer(photographer)
+      listOfPhotographers.creation()
+    })
+  })

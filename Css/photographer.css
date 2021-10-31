@@ -105,6 +105,7 @@ li.footer-tag-item{
     display: flex;
     flex-direction: column;   
 }
+
 .btn-card {
     cursor: pointer;
 }
@@ -136,6 +137,7 @@ li.footer-tag-item{
     right: 0px;
     top: 15px;
 }
+
 .nombre {
     width: 8%;
     position: relative;
@@ -153,7 +155,7 @@ span {
 /***** Etiquette *****/
 
 .sticker {
-    z-index: 1000;
+    z-index: 10;
     width: 376px;
     height: 59px;
     border-radius: 5px;
@@ -253,7 +255,6 @@ textarea {
     opacity: 1;
   }
   
-
   /***** Liste déroulante *****/
 
   .custom-select {
@@ -297,8 +298,7 @@ textarea {
     background: rgba(144, 28, 28, 1);
     padding: 7px;
     border-bottom: 1px solid white;
-    cursor: pointer;
-    
+    cursor: pointer;   
 }
 
 .select-hide {
