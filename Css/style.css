@@ -1,4 +1,5 @@
 header {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,28 +7,34 @@ header {
 
 .box-button {
     width: 100%;
+    display: none;
+    justify-content: center
+}
+
+.logo {
     display: flex;
-    justify-content:center
+    height: 50px;
+    width: 240px;
+    margin-bottom: 30px;
+    background: url(../images/svg/logo.svg) center center no-repeat ;
 }
 
-nav {
+.nav-tag {
     display: flex;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+    width: 100%;  
+    justify-content: space-around;
 }
 
-ul {
+.tag-list {
     display: flex;
+    margin-top: 40px;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 45%
 }
 
-li {
-    list-style: none;
-}
-
-.tags {
-    
+.tag {
+    text-decoration: none;
     height: 22px;
     margin-left: 3px;
     padding: 3px;
@@ -39,13 +46,21 @@ li {
     color: #901C1C;
     font-weight: bold;
 }
+.tag:hover{
+    cursor: pointer;
+}
 
+.tag.active{
+    box-shadow: 1px 1px 10px #901C1C inset, 0 1px 0 #901C1C;  
+    }
+.box_title {
+    display: flex;
+    width: 310px;;
+}
 h1 {
     color: #901C1C;
-    position: relative;
-    left: 80px;
-    bottom: 25px;
     font-size: 2.5em;
+    
 }
 
 /******** Carte des photographes ********/
@@ -126,7 +141,8 @@ h3 {
     padding:0
 }
 
-li.footer-tag-item{   
+a.footer-tag-item { 
+    text-decoration: none;
     height: 22px;
     background: white;
     border: 0.5px solid #c4c4c4;

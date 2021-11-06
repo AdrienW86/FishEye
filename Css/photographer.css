@@ -3,8 +3,16 @@
 body {
     padding: 5%
 }
+
 .logo {
+    display: block;
+    height: 50px;
+    width: 200px;
     margin-bottom: 30px;
+    background: url(../images/svg/logo.svg) left center no-repeat ;  
+}
+.logo:hover {
+    cursor: pointer;
 }
 #banner {
     width: 100%
@@ -36,7 +44,8 @@ h3 {
     padding: 0
 }
 
-li.footer-tag-item{  
+a.footer-tag-item { 
+    text-decoration: none;
     list-style: none;
     height: 22px;
     background: white;
