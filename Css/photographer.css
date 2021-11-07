@@ -76,7 +76,7 @@ a.footer-tag-item {
     border-radius: 5px
 }
 
-.modal-btn:hover {
+.modal-btn:focus, .modal-btn:hover     {
     cursor: pointer;
     color: black;
     background: #DB8876;     
@@ -108,8 +108,8 @@ a.footer-tag-item {
 }
 
 .image-card {
-    width: 350px;
-    height: 350px;
+    width: 355px;
+    height: 355px;
     margin-top: 2.5%;
     display: flex;
     flex-direction: column;   
@@ -139,16 +139,17 @@ a.footer-tag-item {
 
  .btn-like {
     background-color: white; 
-    height: 30px;
+    height: 20px;
     border: 0px;
     width: 5%;
     position: relative;
-    right: 0px;
+    right: 2px;
     top: 15px;
 }
 
 .nombre {
     width: 8%;
+    height: 18px;
     position: relative;
     top: 15px;    
 }

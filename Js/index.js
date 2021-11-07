@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import Photographer from "../Models/photographer-class.js"
 // Localisation des données
 const datas = "/datas.json"
@@ -6,21 +5,26 @@ const datas = "/datas.json"
 fetch(datas)
 	.then(response => response.json())
 	.then(data => {
-		const  photographers  = data.photographers
-
-		// Création des tags
+		const  photographers  = data.photographers		
 		const nav = document.querySelector(".nav-tag")
 
+		//Bouton
+		let btnContent = document.createElement("button")
+		btnContent.setAttribute("class", "button-content")
+		btnContent.setAttribute("aria-describedby", "button pour passer au contenu")
+		btnContent.innerHTML ="Passer au contenu"
+		nav.appendChild(btnContent)
+		// Logo
 		let logo = document.createElement("a")
 		logo.setAttribute("class", "logo")
 		logo.setAttribute( "href","./index.html")
 		logo.setAttribute("alt", "Fisheye Home page")		
 		nav.appendChild(logo)
-	
+		// Création des tags
 		let tags = document.createElement("div")
 		tags.setAttribute("class", "tag-list")
 		nav.appendChild(tags)
-
+		//Titre
 		let boxTitle = document.createElement("div")
 		boxTitle.setAttribute("class", "box_title")
 		nav.appendChild(boxTitle)
@@ -37,15 +41,6 @@ fetch(datas)
 		let sport = document.createElement("a")
 		let animals = document.createElement("a")
 		let event = document.createElement("a")
-	
-		portrait.setAttribute("value", "#Portrait")
-		art.setAttribute("value", "#Art")
-		fashion.setAttribute("value", "#Fashion")
-		architecture.setAttribute("value", "#Architecture")
-		travel.setAttribute("value", "#Travel")
-		sport.setAttribute("value", "#Sport")
-		animals.setAttribute("value", "#Animals")
-		event.setAttribute("value", "#Events")
 	
 		portrait.setAttribute("href", "./index.html?hashtag=" + "portrait")
 		art.setAttribute("href","./index.html?hashtag=" + "art")
@@ -87,8 +82,6 @@ fetch(datas)
 		const params = new URL(document.location).searchParams
 		let currentTag = params.get("hashtag")
 
-		console.log(currentTag)
-
 		if(currentTag == null) {
 			photographers.forEach(photographer => {
 				const listOfPhotographers = new Photographer(photographer)
@@ -98,7 +91,6 @@ fetch(datas)
 			photographers.forEach(photographer => {
 				const selectedTag = photographer.tags.filter((tag) => tag == currentTag)
 
-				console.log(currentTag)
 				if(selectedTag.length > 0) {
 					const listOfPhotographers = new Photographer(photographer)
 					listOfPhotographers.creation()
@@ -113,7 +105,6 @@ fetch(datas)
 
 		const body = document.querySelector("body")
 		let bodyHeight = body.clientHeight
-		console.log(body)
 
 		window.addEventListener("scroll", () => {
 			if(window.scrollY > height) {

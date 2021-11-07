@@ -29,12 +29,64 @@ fetch(datas)
 		selectedPhotographer = new Photographer(selectedPhotographer)
 		selectedPhotographer.createCard()
 
+		
+
+
+
+		/** *** Listbox *****/
+
+		const selectElt = document.querySelector("select")
+		const selectDiv = document.querySelector(".custom-select")
+		const newSelect = document.createElement("div")
+		newSelect.classList.add("new-select")
+		newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML
+		selectDiv.appendChild(newSelect)
+		const newMenu = document.createElement("div")
+		newMenu.classList.add("select-items", "select-hide")
+
+		for (const option of selectElt.options) {
+			const newOption = document.createElement("div")
+			newOption.innerHTML = option.innerHTML
+			newOption.addEventListener("click", function () {
+				for (const option of selectElt.options) {
+					if (option.innerHTML === this.innerHTML) {
+						selectElt.selectedIndex = option.index
+						newSelect.innerHTML = this.innerHTML
+						break
+					}
+				}
+				newSelect.click()
+			})
+			newMenu.appendChild(newOption)
+		}
+		selectDiv.appendChild(newMenu)
+		newSelect.addEventListener("click", function (e) {
+			e.stopPropagation()
+			this.nextSibling.classList.toggle("select-hide")
+			this.classList.toggle("active")
+		})
+
+		console.log(newSelect.innerHTML)
+		
+		if(newSelect.innerHTML == "Popularité") {
+			selectedMedia.forEach((media) => {
+				const listOfMedia = new Media(media)
+				listOfMedia.affichage()
+			})
+			console.log(" tu es populaire")
+		}else if(newSelect.innerHTML == "Date") {
+			console.log(" tu es daté")
+		}else if(newSelect.innerHTML == "Titre") {
+			console.log(" tu es titré")
+		}
+
+
 		// et pour chacun de ses médias on créeé une card
+		
 		selectedMedia.forEach((media) => {
 			const listOfMedia = new Media(media)
 			listOfMedia.affichage()
 		})
-
 		// Etiquette avec le prix et le nombre de likes total
 
 		const sticker = document.createElement("section")
@@ -65,6 +117,7 @@ fetch(datas)
 		const likes = document.querySelectorAll(".nombre")
 		likes.forEach(like => {
 			like.nextSibling.addEventListener("click", (event) => {
+				event.preventDefault()
 				if (!event.target.classList.contains("like")) {
 					const likePost = parseInt(like.innerHTML) + 1
 					like.innerHTML = likePost
@@ -268,40 +321,7 @@ fetch(datas)
 		}
 		function closeModal () {
 			modal.style.display = "none"
-		}
-
-		/** *** Listbox *****/
-
-		const selectElt = document.querySelector("select")
-		const selectDiv = document.querySelector(".custom-select")
-		const newSelect = document.createElement("div")
-		newSelect.classList.add("new-select")
-		newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML
-		selectDiv.appendChild(newSelect)
-		const newMenu = document.createElement("div")
-		newMenu.classList.add("select-items", "select-hide")
-
-		for (const option of selectElt.options) {
-			const newOption = document.createElement("div")
-			newOption.innerHTML = option.innerHTML
-			newOption.addEventListener("click", function () {
-				for (const option of selectElt.options) {
-					if (option.innerHTML === this.innerHTML) {
-						selectElt.selectedIndex = option.index
-						newSelect.innerHTML = this.innerHTML
-						break
-					}
-				}
-				newSelect.click()
-			})
-			newMenu.appendChild(newOption)
-		}
-		selectDiv.appendChild(newMenu)
-		newSelect.addEventListener("click", function (e) {
-			e.stopPropagation()
-			this.nextSibling.classList.toggle("select-hide")
-			this.classList.toggle("active")
-		})
+		}		
 		LightBox.init()	
 	})
 

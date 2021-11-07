@@ -20,6 +20,11 @@ body {
     width: 100%;
 }
 
+.box video {
+    display: block;
+    width: 100%;
+}
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -79,9 +84,14 @@ body {
 .lightbox__container img {
     width: 90%;
     height: 80vh;
-    
-
     animation: lightboxIn .5s;
+}
+
+.lightbox__container video {
+    width: 90%;
+    height: 80vh;
+    animation: lightboxIn .5s;
+    object-fit: cover;
 }
 
 .lightbox__container {

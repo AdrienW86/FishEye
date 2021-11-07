@@ -25,13 +25,16 @@ export default class Media {
 		// Carte du Média
 		const buttonCard = document.createElement("a")
 		buttonCard.setAttribute("class", "btn-card")
+		buttonCard.setAttribute("tabindex", "0")
 		imageCard.appendChild(buttonCard)
 
 		// Image du média
 		if (this.image) {
 			const image = document.createElement("img")
 			image.setAttribute("class", "media-single-photographer")
+			image.setAttribute("tabindex", -1)
 			image.setAttribute("alt", "photo")
+			image.setAttribute("value", this.title)
 			image.src = "../images/" + this.photographerId + "/" + this.image
 			buttonCard.appendChild(image)
 
@@ -39,8 +42,8 @@ export default class Media {
 		} else if (this.video) {			
 			const video = document.createElement("video")
 			video.setAttribute("class", "media-single-photographer")
-			video.setAttribute("tabindex", "0")
-			video.setAttribute("controls", video.src)
+			video.setAttribute("tabindex", -1)
+			video.setAttribute("value", this.title)
 			video.src = "../images/" + this.photographerId + "/" + this.video + "#t=0.1"
 			video.setAttribute("type", "video/mp4")
 			buttonCard.appendChild(video)
@@ -58,6 +61,7 @@ export default class Media {
 		// Titre du média
 		const titleImage = document.createElement("p")
 		titleImage.setAttribute("class", "titre-media")
+		titleImage.setAttribute("value", this.title)
 		titleImage.innerHTML = this.title
 		detailsImage.appendChild(titleImage)
 
@@ -70,6 +74,7 @@ export default class Media {
 		// Svg des likes
 		const likes = document.createElement("div")
 		likes.setAttribute("class", "btn-like")
+		likes.setAttribute("tabindex", "0")
 		likes.innerHTML = svg
 		detailsImage.appendChild(likes)
 	}

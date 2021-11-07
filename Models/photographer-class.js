@@ -136,7 +136,8 @@ export default class Photographer {
 		boxBtn.setAttribute("class", "box-btn")
 		bannerPhotographer.appendChild(boxBtn)
 
-		const modalBtn = document.createElement("btn")
+		const modalBtn = document.createElement("a")
+		modalBtn.setAttribute("tabindex", "0")
 		modalBtn.setAttribute("class", "modal-btn")
 		modalBtn.setAttribute("type", "submit")
 		modalBtn.innerHTML = "Contactez-moi"
