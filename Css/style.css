@@ -5,10 +5,20 @@ header {
     justify-content: center;
 }
 
-.box-button {
-    width: 100%;
-    display: none;
-    justify-content: center
+.button-content {
+    display: none;   
+}
+
+button.scroll {
+    display: block;
+    position: fixed;
+    top: 20px;
+    width: 14%;
+    left: 43%;
+}
+
+button.scroll:hover {
+    cursor: pointer;
 }
 
 .logo {

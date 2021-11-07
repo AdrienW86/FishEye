@@ -99,28 +99,24 @@ export default class Photographer {
 		bannerPhotographer.appendChild(description)
 
 		// Nom du photographe
-
 		const onePhotographerName = document.createElement("h2")
 		onePhotographerName.setAttribute("class", "photographer-name")
 		onePhotographerName.innerHTML = this.name
 		description.appendChild(onePhotographerName)
 
 		// Localisation du photographe
-
 		const onePhotographerCity = document.createElement("h3")
 		onePhotographerCity.setAttribute("class", "city")
 		onePhotographerCity.innerHTML = this.city + ", " + this.country
 		description.appendChild(onePhotographerCity)
 
 		// Description du photographe
-
 		const onePhotographerTagline = document.createElement("p")
 		onePhotographerTagline.setAttribute("class", "description")
 		onePhotographerTagline.innerHTML = this.tagline
 		description.appendChild(onePhotographerTagline)
 
 		// Hashtag du phototgraphe
-
 		const tag = document.createElement("ul")
 		tag.setAttribute("class", "footer-tag")
 		description.appendChild(tag)
@@ -133,8 +129,6 @@ export default class Photographer {
 			li.setAttribute("value", item)
 			li.innerHTML = "#" + item
 			tag.appendChild(li)
-
-
 		})
 
 		// Bouton de la modal

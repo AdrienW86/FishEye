@@ -23,7 +23,7 @@ export default class Media {
 		list.appendChild(imageCard)
 
 		// Carte du Média
-		const buttonCard = document.createElement("section")
+		const buttonCard = document.createElement("a")
 		buttonCard.setAttribute("class", "btn-card")
 		imageCard.appendChild(buttonCard)
 

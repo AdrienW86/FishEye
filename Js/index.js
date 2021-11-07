@@ -105,6 +105,29 @@ fetch(datas)
 				}			
 			})		
 		}
+
+		// Bouton contenu
+		const contenu = document.querySelector(".button-content")
+		const menu = document.querySelector(".nav-tag")
+		let height = menu.clientHeight
+
+		const body = document.querySelector("body")
+		let bodyHeight = body.clientHeight
+		console.log(body)
+
+		window.addEventListener("scroll", () => {
+			if(window.scrollY > height) {
+				contenu.classList.add("scroll")
+			}else{
+				contenu.classList.remove("scroll")
+			}
+		})	
+		let btnContenu = document.querySelectorAll(".button-content")
+		btnContenu.forEach(btn => btn.addEventListener("click", goContent))
+
+		function goContent() {
+			window.scroll(0, -bodyHeight)
+		}		
 	})
 
 
