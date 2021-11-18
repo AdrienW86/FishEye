@@ -24,13 +24,13 @@ export default async function Listbox  () {
 		const idMedia = media.photographerId
 		return idMedia === selectedPhotographer.id
 	})
-	const sortMedia = (map, compareFn) => (a, b) => -compareFn(map(a), map(b))
-	const byValue = (a, b) => a - b
-	const toLikes = (media) => media.likes
-	const mediasByLikes = [...selectedMedia].sort(sortMedia(toLikes, byValue))
-	const toDate = (media) => new Date(media.date).getTime()
-	const mediasByDate = [...selectedMedia].sort(sortMedia(toDate, byValue))
-	const mediaByTitre = selectedMedia.sort((a, b) => {
+	const filterMedia = (map, compareFn) => (a, b) => -compareFn(map(a), map(b))
+	const filterLikes = (media) => media.likes
+	const filterDate = (media) => new Date(media.date).getTime()
+	const filterTitle = (a, b) => a - b
+	const mediasLikes = [...selectedMedia].sort(filterMedia(filterLikes, filterTitle))
+	const mediasDate = [...selectedMedia].sort(filterMedia(filterDate, filterTitle))
+	const mediaTitle = selectedMedia.sort((a, b) => {
 		if (a.title < b.title) return -1
 		if (a.title > b.title) return 1
 		return 0
@@ -40,7 +40,7 @@ export default async function Listbox  () {
 	box.setAttribute("class", "container")
 	list.appendChild(box)
 
-	mediasByLikes.forEach((media) => {
+	mediasLikes.forEach((media) => {
 		const listOfMedia = new Media(media)
 		listOfMedia.affichage()
 	})
@@ -74,7 +74,7 @@ export default async function Listbox  () {
 		newMenu.appendChild(newOption)
 	}
 	selectDiv.appendChild(newMenu)
-	
+
 	newSelect.addEventListener("click", function(e) {
 		let	rembox = document.querySelector(".container")
 		e.stopPropagation()
@@ -82,7 +82,7 @@ export default async function Listbox  () {
 		this.classList.toggle("active")
 
 		if(newSelect.innerHTML == option1 || newSelect.innerHTML == null) {
-			mediasByLikes.forEach((media) => {
+			mediasLikes.forEach((media) => {
 				rembox.remove()
 				const box = document.createElement("div")
 				box.setAttribute("class", "container")
@@ -94,7 +94,7 @@ export default async function Listbox  () {
 			LightBox.init()
 
 		}else if(newSelect.innerHTML == option2) {
-			mediasByDate.forEach((media) => {
+			mediasDate.forEach((media) => {
 				rembox.remove()
 				const box = document.createElement("div")
 				box.setAttribute("class", "container")
@@ -110,7 +110,7 @@ export default async function Listbox  () {
 			const box = document.createElement("div")
 			box.setAttribute("class", "container")
 			list.appendChild(box)	
-			mediaByTitre.forEach((media) => {
+			mediaTitle.forEach((media) => {
 				const listOfMedia = new Media(media)
 				listOfMedia.affichage()
 			})
