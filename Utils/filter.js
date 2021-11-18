@@ -5,13 +5,13 @@ import like from "../Utils/like.js"
 export default function filter () {
 
 	// Affichage par trie des medias :
-	const sortMedia = (map, compareFn) => (a, b) => -compareFn(map(a), map(b))
-	const byValue = (a, b) => a - b
-	const toLikes = (media) => media.likes
-	const mediasByLikes = [...selectedMedia].sort(sortMedia(toLikes, byValue))
-	const toDate = (media) => new Date(media.date).getTime()
-	const mediasByDate = [...selectedMedia].sort(sortMedia(toDate, byValue))
-	const mediaByTitre = selectedMedia.sort((a, b) => {
+	const filterMedia = (map, compareFn) => (a, b) => -compareFn(map(a), map(b))
+	const filterLikes = (media) => media.likes
+	const filterDate = (media) => new Date(media.date).getTime()
+	const filterTitle = (a, b) => a - b
+	const mediasLikes = [...selectedMedia].sort(filterMedia(filterLikes, filterTitle))
+	const mediasDate = [...selectedMedia].sort(filterMedia(filterDate, filterTitle))
+	const mediaTitle = selectedMedia.sort((a, b) => {
 		if (a.title < b.title) return -1
 		if (a.title > b.title) return 1
 		return 0
@@ -51,14 +51,11 @@ export default function filter () {
 		rembox.remove()
 		const box = document.createElement("div")
 		box.setAttribute("class", "container")
-		// eslint-disable-next-line no-undef
 		list.appendChild(box)
 		newSelect.innerHTML = newOption1.innerHTML
-		newOption1.remove()
-			
-		newSelect.click()
-						
-		mediasByLikes.forEach((media) => {		
+		newOption1.remove()			
+		newSelect.click()						
+		mediasLikes.forEach((media) => {		
 			const listOfMedia = new Media(media)
 			listOfMedia.affichage()
 		})
@@ -75,7 +72,7 @@ export default function filter () {
 		newSelect.innerHTML = newOption2.innerHTML
 		newOption2.remove()
 		newSelect.click()
-		mediasByDate.forEach((media) => {
+		mediasDate.forEach((media) => {
 			const listOfMedia = new Media(media)
 			listOfMedia.affichage()			
 		})
@@ -92,7 +89,7 @@ export default function filter () {
 		newSelect.innerHTML = newOption3.innerHTML
 		newOption1.remove()
 		newSelect.click()
-		mediaByTitre.forEach((media) => {
+		mediaTitle.forEach((media) => {
 			const listOfMedia = new Media(media)
 			listOfMedia.affichage()			
 		})
@@ -110,17 +107,17 @@ export default function filter () {
 	let option3 = document.querySelector(".option3").innerHTML
 
 	if(selectedFilter == option1) {
-		mediasByLikes.forEach((media) => {
+		mediasLikes.forEach((media) => {
 			const listOfMedia = new Media(media)
 			listOfMedia.affichage()
 		})
 	}else if(selectedFilter == option2) {
-		mediasByDate.forEach((media) => {
+		mediasDate.forEach((media) => {
 			const listOfMedia = new Media(media)
 			listOfMedia.affichage()
 		})
 	}else if(selectedFilter == option3) {
-		mediaByTitre.forEach((media) => {
+		mediaTitle.forEach((media) => {
 			const listOfMedia = new Media(media)
 			listOfMedia.affichage()
 		})
