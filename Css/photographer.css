@@ -99,7 +99,7 @@ a.footer-tag-item {
     object-fit: cover;
 }
 
-#liste_media {
+ .container {
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -107,7 +107,7 @@ a.footer-tag-item {
     width: 100%;   
 }
 
-.image-card {
+.media-card {
     width: 355px;
     height: 355px;
     margin-top: 2.5%;
@@ -141,7 +141,7 @@ a.footer-tag-item {
     background-color: white; 
     height: 20px;
     border: 0px;
-    width: 5%;
+    width: 20px;
     position: relative;
     right: 2px;
     top: 15px;
@@ -283,10 +283,12 @@ textarea {
     position: relative;
     padding: 7px;
     border-radius: 4px;
+    text-decoration: none;
 }
 
 .new-select.active {
-    border-radius: 4px 4px 0px 0px 
+    border-radius: 4px 4px 0px 0px ;
+    text-decoration: none;
 }
 
 .new-select::after {
@@ -297,6 +299,7 @@ textarea {
     border-color: #fff transparent transparent transparent;
     top: 14px;
     height: 0;
+    text-decoration: none;
     
 }
 .new-select.active::after{

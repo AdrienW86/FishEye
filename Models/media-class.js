@@ -12,21 +12,21 @@ export default class Media {
 	}
 
 	affichage () {
-		const list = document.getElementById("liste_media") // Notre point d'attache dans le DOM
+		const box = document.querySelector(".container") // Notre point d'attache dans le DOM
 		const svg = `<svg width="18" height="19" viewBox="0 0 18 19" fill="none" class="heart" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.125 18.35L7.85625 17.03C3.35 12.36 0.375 9.28 0.375 5.5C0.375 2.42 2.4925 0 5.1875 0C6.71 0 8.17125 0.81 9.125 2.09C10.0787 0.81 11.54 0 13.0625 0C15.7575 0 17.875 2.42 17.875 5.5C17.875 9.28 14.9 12.36 10.3938 17.04L9.125 18.35Z" fill="#911C1C"/>
                     </svg> `
+		
+		// Carte du Média
+		const mediaCard = document.createElement("figure")
+		mediaCard.setAttribute("class", "media-card")
+		box.appendChild(mediaCard)
 
 		// Carte du Média
-		const imageCard = document.createElement("section")
-		imageCard.setAttribute("class", "image-card")
-		list.appendChild(imageCard)
-
-		// Carte du Média
-		const buttonCard = document.createElement("a")
+		const buttonCard = document.createElement("div")
 		buttonCard.setAttribute("class", "btn-card")
 		buttonCard.setAttribute("tabindex", "0")
-		imageCard.appendChild(buttonCard)
+		mediaCard.appendChild(buttonCard)
 
 		// Image du média
 		if (this.image) {
@@ -53,29 +53,28 @@ export default class Media {
 			controller.setAttribute("class", "controls")
 			buttonCard.appendChild(controller)
 		}
-		// Infos sur le média
-		const detailsImage = document.createElement("div")
-		detailsImage.setAttribute("class", "details_images")
-		imageCard.appendChild(detailsImage)
+		//Infos sur le média
+		const detailsMedia = document.createElement("div")
+		detailsMedia.setAttribute("class", "details_images")
+		mediaCard.appendChild(detailsMedia)
 
 		// Titre du média
-		const titleImage = document.createElement("p")
-		titleImage.setAttribute("class", "titre-media")
-		titleImage.setAttribute("value", this.title)
-		titleImage.innerHTML = this.title
-		detailsImage.appendChild(titleImage)
+		const titleMedia = document.createElement("p")
+		titleMedia.setAttribute("class", "titre-media")
+		titleMedia.innerHTML = this.title
+		detailsMedia.appendChild(titleMedia)
 
 		//Nombres de likes
 		const nmbLikes = document.createElement("div")
 		nmbLikes.setAttribute("class", "nombre")
 		nmbLikes.innerHTML = this.likes
-		detailsImage.appendChild(nmbLikes)
+		detailsMedia.appendChild(nmbLikes)
 
 		// Svg des likes
 		const likes = document.createElement("div")
 		likes.setAttribute("class", "btn-like")
 		likes.setAttribute("tabindex", "0")
 		likes.innerHTML = svg
-		detailsImage.appendChild(likes)
+		detailsMedia.appendChild(likes)
 	}
 }

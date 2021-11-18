@@ -54,7 +54,7 @@ body {
 }
 
 .lightbox-prev {
-    right: auto;
+    right: 50px;
     left: 0;
     transform: rotate(180deg)
 }
@@ -78,6 +78,9 @@ body {
 }
 
 .lightbox button:hover {
+    opacity: 1;
+}
+.lightbox button:focus {
     opacity: 1;
 }
 

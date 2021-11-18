@@ -17,8 +17,6 @@ export default class LightBox {
 		this.gallery = gallery
 		this.Arraytitles = Arraytitles
 		this.title = title
-		//	console.log(e.currentTarget.getAttribute("value"))
-		console.log(title)
 		this.loadMedia(url, title)
 		this.onKeyUp = this.onKeyUp.bind(this)
 		const box = document.querySelector(".box")
@@ -29,8 +27,6 @@ export default class LightBox {
 	loadMedia (url, title) {
 		this.url = null
 		this.title = null
-		console.log(title)
-		console.log(url)
 		const container = this.element.querySelector(".lightbox__container")
 		const loader = document.createElement("div")
 		loader.classList.add("lightbox__loader")
@@ -77,7 +73,6 @@ export default class LightBox {
 		e.preventDefault()
 		this.element.classList.add("fadeOut")
 		window.setTimeout(() => {
-			console.log(this.element.parentElement)
 			this.element.parentElement.removeChild(this.element)
 		}, 500)
 		document.removeEventListener("keyup", this.onKeyUp) // On supprime l'évènement
@@ -105,7 +100,6 @@ export default class LightBox {
 
 		if (positionImage == 0) {
 			positionImage = this.gallery.length
-			// eslint-disable-next-line no-unused-vars
 			positionTitle = this.Arraytitles.length
 		}
 		this.loadMedia(

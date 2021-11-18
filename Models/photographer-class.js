@@ -11,6 +11,7 @@ export default class Photographer {
 	}
 
 	creation () {
+
 		const list = document.getElementById("photographes") // Notre point d'attache dans le DOM
 
 		// Carte pour chaque photographe
@@ -150,7 +151,7 @@ export default class Photographer {
 
 		// Photo de profil
 		const picture = document.createElement("img")
-		picture.setAttribute("src", "alt")
+		picture.setAttribute("alt", "")
 		picture.setAttribute("class", "photo-profil")
 		avatar.appendChild(picture)
 		picture.src = "../Images/" + this.portrait
