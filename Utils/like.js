@@ -107,8 +107,7 @@ export default function like () {
 						totalLikes--
 						event.target.classList.toggle("dislike")
 						event.target.classList.remove("like")
-					}
-					
+					}					
 				}
 			}))		
 		})	

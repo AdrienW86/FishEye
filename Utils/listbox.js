@@ -36,7 +36,7 @@ export default async function Listbox  () {
 		return 0
 	})
 	const list = document.getElementById("liste_media") // Notre point d'attache dans le DOM
-	const box = document.createElement("div")
+	let box = document.createElement("div")
 	box.setAttribute("class", "container")
 	list.appendChild(box)
 
@@ -54,9 +54,9 @@ export default async function Listbox  () {
 	const newMenu = document.createElement("div")
 	newMenu.classList.add("select-items", "select-hide")
 
-	let option1 = document.querySelector(".option1").innerHTML
-	let option2 = document.querySelector(".option2").innerHTML	
-	let option3 = document.querySelector(".option3").innerHTML
+	let option1 = document.querySelector(".option1")
+	let option2 = document.querySelector(".option2")	
+	let option3 = document.querySelector(".option3")
 
 	for (let option of selectElt.options) {
 		const newOption = document.createElement("div")
@@ -74,119 +74,66 @@ export default async function Listbox  () {
 			newSelect.click()
 		})
 
-		/*newOption.addEventListener("keydown", function () {
-			for(let option of selectElt.options) {
-				if(option.innerHTML === this.innerHTML) {
-					newSelect.innerHTML = this.innerHTML					
+		newOption.addEventListener("keydown", function (e) {
+			if(e.key === "Enter") {
+				for(let option of selectElt.options) {
+					if(option.innerHTML === this.innerHTML) {
+						newSelect.innerHTML = this.innerHTML					
+					}
 				}
+				newSelect.click()
 			}
-			newSelect.click()
-		})*/
-
+		})
+		newSelect.click()
 		newMenu.appendChild(newOption)
 	}
 	selectDiv.appendChild(newMenu)
 
-	newSelect.addEventListener("click", function(e) {
-		let	rembox = document.querySelector(".container")
-		e.stopPropagation()
-		this.nextSibling.classList.toggle("select-hide")
-		this.classList.toggle("active")
+	newSelect.addEventListener("keydown", function(e){
+		if(e.key === "Enter") {
+			newSelect.click()
+		}
+	})
 
-		
+	function launchListbox() {
+		document.querySelector(".new-select")
 
-		if(newSelect.innerHTML == option1 || newSelect.innerHTML == null) {
-			mediasLikes.forEach((media) => {
-				rembox.remove()
-				const box = document.createElement("div")
-				box.setAttribute("class", "container")
-				list.appendChild(box)		
-				const listOfMedia = new Media(media)
-				listOfMedia.affichage()
-			})
-			like()
-			LightBox.init()
-
-		}else if(newSelect.innerHTML == option2) {
-			mediasDate.forEach((media) => {
-				rembox.remove()
-				const box = document.createElement("div")
-				box.setAttribute("class", "container")
-				list.appendChild(box)		
-				const listOfMedia = new Media(media)
-				listOfMedia.affichage()
-			})
-			like()
-			LightBox.init()
-            
-		}else if(newSelect.innerHTML == option3) {
+		newSelect.addEventListener("click", function(e) {
+			let rembox = document.querySelector(".container")
 			rembox.remove()
 			const box = document.createElement("div")
 			box.setAttribute("class", "container")
-			list.appendChild(box)	
-			mediaTitle.forEach((media) => {
-				const listOfMedia = new Media(media)
-				listOfMedia.affichage()
-			})
-			like()
-			LightBox.init()
-		}	
-	})
+			list.appendChild(box)
+			e.stopPropagation()
+			this.nextSibling.classList.toggle("select-hide")
+			this.classList.toggle("active")
 
-	// Clavier
-
-	newSelect.addEventListener("keydown", function(e) {
-		let enter = e.key === "Enter"
-		
-		let	rembox = document.querySelector(".container")	
-		this.nextSibling.classList.toggle("select-hide")
-		this.classList.toggle("active")
-
-		
-		if(newSelect.innerHTML == option1 || newSelect.innerHTML == null) {
-			if(enter) {
-				mediasLikes.forEach((media) => {
-					rembox.remove()
-					const box = document.createElement("div")
-					box.setAttribute("class", "container")
-					list.appendChild(box)		
-					const listOfMedia = new Media(media)
-					listOfMedia.affichage()
-					
-				})
-			}
-			like()
-			LightBox.init()
-	
-		}else if(newSelect.innerHTML == option2) {
-			if(enter) {
-				mediasDate.forEach((media) => {
-					rembox.remove()
-					const box = document.createElement("div")
-					box.setAttribute("class", "container")
-					list.appendChild(box)		
+			if(newSelect.innerHTML == option1.innerHTML || newSelect.innerHTML == null) {
+				mediasLikes.forEach((media) => {						
 					const listOfMedia = new Media(media)
 					listOfMedia.affichage()
 				})
-			}
-			like()
-			LightBox.init()
-				
-		}else if(newSelect.innerHTML == option3) {
-			if(enter) {
-					
+				like()
+				LightBox.init()
+
+			}else if(newSelect.innerHTML == option2.innerHTML) {
+				mediasDate.forEach((media) => {		
+					const listOfMedia = new Media(media)
+					listOfMedia.affichage()
+				})
+				like()
+				LightBox.init()
+            
+			}else if(newSelect.innerHTML == option3.innerHTML) {
 				mediaTitle.forEach((media) => {
-					rembox.remove()
-					const box = document.createElement("div")
-					box.setAttribute("class", "container")
-					list.appendChild(box)
 					const listOfMedia = new Media(media)
 					listOfMedia.affichage()
 				})
-			}
-			like()
-			LightBox.init()
-		}
-	})
-	
+				like()
+				LightBox.init()
+			}	
+		})
+	}
+	launchListbox()	
 }
+

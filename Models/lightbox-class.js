@@ -10,7 +10,7 @@ export default class LightBox {
 		console.log(main)
 		
 		links.forEach(link =>
-			link.addEventListener( "click", function jaime (e) {
+			link.addEventListener( "click", function (e) {
 				main.setAttribute("aria-hidden", "true")
 				main.style.display = "none"
 				banner.style.display ="none"
