@@ -4,11 +4,35 @@ export default class LightBox {
 		let gallery = links.map(link => link.getAttribute("src"))
 		const titles = Array.from(document.querySelectorAll(".titre-media"))
 		let Arraytitles = titles.map(title => title.innerHTML)
+		let main = document.getElementById("liste_media")
+		let banner = document.getElementById("banner")
+		console.log(banner)
+		console.log(main)
+		
 		links.forEach(link =>
-			link.addEventListener( "click", function (e) {
+			link.addEventListener( "click", function jaime (e) {
+				main.setAttribute("aria-hidden", "true")
+				main.style.display = "none"
+				banner.style.display ="none"
+				banner.setAttribute("aria-hidden", "true")
 				e.preventDefault()
 				new LightBox(e.currentTarget.getAttribute("src"), e.currentTarget.getAttribute("value"),
-					gallery, Arraytitles )
+					gallery, Arraytitles)
+			}))
+
+		// Clavier
+
+		links.forEach(link =>
+			link.addEventListener( "keydown", function (e) {
+				let enter = e.key === "Enter"
+				if(enter) {
+					main.setAttribute("aria-hidden", "true")
+					main.style.display = "none"
+					banner.style.display ="none"
+					banner.setAttribute("aria-hidden", "true")
+					new LightBox(e.currentTarget.getAttribute("src"), e.currentTarget.getAttribute("value"),
+						gallery, Arraytitles)
+				}
 			}))
 	}
 
@@ -34,6 +58,8 @@ export default class LightBox {
 		p.classList.add("lightbox-title")
 		container.innerHTML = "" // evite d'afficher une deuxième image en dessous de la première
 		container.appendChild(loader)
+		container.focus()
+		
 		if (url.includes("jpg")) {
 			const image = new Image()
 			image.onload = () => {
@@ -41,7 +67,7 @@ export default class LightBox {
 				container.appendChild(image)
 				container.appendChild(p)
 				this.url = url
-				this.title = title
+				this.title = title				
 			}			
 			image.src = url
 			p.innerHTML = title
@@ -52,7 +78,7 @@ export default class LightBox {
 			container.appendChild(p)
 			this.url = url
 			this.title = title			
-			video.src = url			
+			video.src = url		
 			video.setAttribute("controls", "")
 			video.setAttribute("type", "video/mp4")
 			p.innerHTML = title
@@ -76,6 +102,12 @@ export default class LightBox {
 			this.element.parentElement.removeChild(this.element)
 		}, 500)
 		document.removeEventListener("keyup", this.onKeyUp) // On supprime l'évènement
+		let main = document.getElementById("liste_media")
+		let banner = document.getElementById("banner")
+		main.style.display = "block"
+		banner.style.display ="block"
+		banner.setAttribute("aria-hidden", "false")
+		main.setAttribute("aria-hidden", "false")
 	}
 
 	next (e) {

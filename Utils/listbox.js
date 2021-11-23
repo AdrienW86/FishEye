@@ -47,6 +47,7 @@ export default async function Listbox  () {
 	const selectElt = document.querySelector("select")
 	const selectDiv = document.querySelector(".custom-select")
 	const newSelect = document.createElement("div")
+	newSelect.setAttribute("tabindex", "0")
 	newSelect.classList.add("new-select")	
 	newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML
 	selectDiv.appendChild(newSelect)
@@ -60,6 +61,7 @@ export default async function Listbox  () {
 	for (let option of selectElt.options) {
 		const newOption = document.createElement("div")
 		newOption.setAttribute("class", "selection")
+		newOption.setAttribute("tabindex", "0")
 		newOption.innerHTML = option.innerHTML
 		newMenu.appendChild(newOption)
 
@@ -71,6 +73,16 @@ export default async function Listbox  () {
 			}
 			newSelect.click()
 		})
+
+		/*newOption.addEventListener("keydown", function () {
+			for(let option of selectElt.options) {
+				if(option.innerHTML === this.innerHTML) {
+					newSelect.innerHTML = this.innerHTML					
+				}
+			}
+			newSelect.click()
+		})*/
+
 		newMenu.appendChild(newOption)
 	}
 	selectDiv.appendChild(newMenu)
@@ -80,6 +92,8 @@ export default async function Listbox  () {
 		e.stopPropagation()
 		this.nextSibling.classList.toggle("select-hide")
 		this.classList.toggle("active")
+
+		
 
 		if(newSelect.innerHTML == option1 || newSelect.innerHTML == null) {
 			mediasLikes.forEach((media) => {
@@ -118,5 +132,61 @@ export default async function Listbox  () {
 			LightBox.init()
 		}	
 	})
-}
 
+	// Clavier
+
+	newSelect.addEventListener("keydown", function(e) {
+		let enter = e.key === "Enter"
+		
+		let	rembox = document.querySelector(".container")	
+		this.nextSibling.classList.toggle("select-hide")
+		this.classList.toggle("active")
+
+		
+		if(newSelect.innerHTML == option1 || newSelect.innerHTML == null) {
+			if(enter) {
+				mediasLikes.forEach((media) => {
+					rembox.remove()
+					const box = document.createElement("div")
+					box.setAttribute("class", "container")
+					list.appendChild(box)		
+					const listOfMedia = new Media(media)
+					listOfMedia.affichage()
+					
+				})
+			}
+			like()
+			LightBox.init()
+	
+		}else if(newSelect.innerHTML == option2) {
+			if(enter) {
+				mediasDate.forEach((media) => {
+					rembox.remove()
+					const box = document.createElement("div")
+					box.setAttribute("class", "container")
+					list.appendChild(box)		
+					const listOfMedia = new Media(media)
+					listOfMedia.affichage()
+				})
+			}
+			like()
+			LightBox.init()
+				
+		}else if(newSelect.innerHTML == option3) {
+			if(enter) {
+					
+				mediaTitle.forEach((media) => {
+					rembox.remove()
+					const box = document.createElement("div")
+					box.setAttribute("class", "container")
+					list.appendChild(box)
+					const listOfMedia = new Media(media)
+					listOfMedia.affichage()
+				})
+			}
+			like()
+			LightBox.init()
+		}
+	})
+	
+}

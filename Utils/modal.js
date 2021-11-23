@@ -2,6 +2,7 @@ export default function createModal() {
 
 	/** *** Création de la Modal *****/
 	const modal = document.querySelector(".modal")
+	modal.setAttribute("tabindex", "-1")
 
 	/** *** Header de la modale *****/
 	const headerModal = document.createElement("div")
@@ -124,10 +125,19 @@ export default function createModal() {
 	const modalbtn = document.querySelectorAll(".modal-btn")
 	modalbtn.forEach((btn) => btn.addEventListener("click", launchModal))
 
+	modalbtn.forEach((btn) => btn.addEventListener("keydown",(e) => {
+		if(e.key === "Enter") {
+			btn.click()
+		}
+	}))
+
+	
+
 	/** *** Fermeture de la modale *****/
 
 	closemodalbtn = document.querySelectorAll(".close-modal-btn")
 	closemodalbtn.forEach((btn) => btn.addEventListener("click", closeModal))
+	
 
 	submit = document.querySelectorAll("submit-btn")
 	submit.forEach((btn) => btn.addEventListener("click", validateForm))
@@ -184,10 +194,67 @@ export default function createModal() {
 			closeModal()
 		}
 	})
+
+	let main = document.getElementById("liste_media")
+	let banner = document.getElementById("banner")
+	console.log(main)
+	// add all the elements inside modal which you want to make focusable
+
 	function launchModal () {
+		//main.setAttribute("tabindex", "-1")
+	//	modal.setAttribute("tabindex", "0")
+		
+		const  focusableElements =
+		"button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])"
+			
+		
+		const firstFocusableElement = modal.querySelectorAll(focusableElements)[0] // get first element to be focused inside modal
+		const focusableContent = modal.querySelectorAll(focusableElements)
+		const lastFocusableElement = focusableContent[focusableContent.length - 1] // get last element to be focused inside modal
+		
+		
+		document.addEventListener("keydown", function(e) {
+			let isTabPressed = e.key === "Tab" 
+			let escape = e.key === "Escape"
+		
+			
+			if (!isTabPressed && !escape) {
+				return
+			}
+			
+			if(escape) {
+				closeModal()
+			} 
+		
+			if (e.shiftKey) { // if shift key pressed for shift + tab combination
+				if (document.activeElement === firstFocusableElement) {
+					lastFocusableElement.focus() // add focus for the last focusable element
+					e.preventDefault()
+				}
+			}
+			
+			
+			else { // if tab key is pressed
+				if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+					firstFocusableElement.focus() // add focus for the first focusable element
+					e.preventDefault()
+				}
+			}
+		})
+		
+		firstFocusableElement.focus()
+
+
+		
 		modal.style.display = "block"
+		document.querySelector(".modal").focus()
+		banner.setAttribute("aria-hidden", "true")
+		
+	
 	}
 	function closeModal () {
 		modal.style.display = "none"
+
 	}
+	
 }

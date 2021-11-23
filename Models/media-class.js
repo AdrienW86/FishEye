@@ -25,14 +25,14 @@ export default class Media {
 		// Carte du Média
 		const buttonCard = document.createElement("div")
 		buttonCard.setAttribute("class", "btn-card")
-		buttonCard.setAttribute("tabindex", "0")
+		//buttonCard.setAttribute("tabindex", "1")
 		mediaCard.appendChild(buttonCard)
 
 		// Image du média
 		if (this.image) {
 			const image = document.createElement("img")
 			image.setAttribute("class", "media-single-photographer")
-			image.setAttribute("tabindex", -1)
+			image.setAttribute("tabindex", "0")
 			image.setAttribute("alt", "photo")
 			image.setAttribute("value", this.title)
 			image.src = "../images/" + this.photographerId + "/" + this.image
@@ -42,7 +42,7 @@ export default class Media {
 		} else if (this.video) {			
 			const video = document.createElement("video")
 			video.setAttribute("class", "media-single-photographer")
-			video.setAttribute("tabindex", -1)
+			video.setAttribute("tabindex", "0")
 			video.setAttribute("value", this.title)
 			video.src = "../images/" + this.photographerId + "/" + this.video + "#t=0.1"
 			video.setAttribute("type", "video/mp4")

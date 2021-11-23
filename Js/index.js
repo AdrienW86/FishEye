@@ -1,16 +1,16 @@
 import Photographer from "../Models/photographer-class.js"
 import createHeader from "../Utils/header.js"
-// Localisation des données
-const datas = "/datas.json"
-// Récupération des données
+//import {getDatas,test, photographers}  from "../Utils/datas.js"
+
 
 createHeader()
-
+const datas = "/datas.json"	
 fetch(datas)
 	.then(response => response.json())
 	.then(data => {
-		const  photographers  = data.photographers		
-		
+		let photographers = data.photographers 
+		const medias = data.media				
+	console.log(photographers)
 		// Gestion des tags
 		const params = new URL(document.location).searchParams
 		let currentTag = params.get("hashtag")
@@ -52,8 +52,9 @@ fetch(datas)
 		function goContent() {
 			window.scroll(0, -bodyHeight)
 		}		
-	})
-
 
 	
+
+	})
+
 

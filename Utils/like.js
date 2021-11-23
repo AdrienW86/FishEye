@@ -56,6 +56,7 @@ export default function like () {
 			// Ajout des likes
 
 			const likes = document.querySelectorAll(".nombre")
+
 			likes.forEach(like => {
 				like.nextSibling.addEventListener("click", (event) => {
 					event.preventDefault()
@@ -79,6 +80,36 @@ export default function like () {
 						event.target.classList.remove("like")
 					}
 				})
-			})		
+			})
+
+			// Clavier
+				
+			likes.forEach(like => like.nextSibling.addEventListener("keydown", (event) => {
+				if(event.key === "Enter") {
+					event.preventDefault()
+					if (!event.target.classList.contains("like")) {
+						//	
+						const likePost = parseInt(like.innerHTML) + 1
+						like.innerHTML = likePost
+						console.log(span)
+						const likeSpan = parseInt(span.innerHTML) +1
+						span.innerHTML = likeSpan 
+						totalLikes++
+						event.target.classList.toggle("like")
+						event.target.classList.remove("dislike")
+					} else {
+						//like.nextSibling.click()
+						const dislikePost = parseInt(like.innerHTML) - 1
+						like.innerHTML = dislikePost
+						const dislikeSpan = parseInt(span.innerHTML) -1
+						span.innerHTML = dislikeSpan 
+		
+						totalLikes--
+						event.target.classList.toggle("dislike")
+						event.target.classList.remove("like")
+					}
+					
+				}
+			}))		
 		})	
 }
