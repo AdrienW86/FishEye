@@ -147,6 +147,8 @@ a.footer-tag-item {
     width: 355px;
     height: 355px;
     margin-top: 2.5%;
+    margin-left: 10px;
+    margin-right: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -498,8 +500,7 @@ textarea {
         -o-object-fit: cover;
            object-fit: cover;
     }
-    
-      
+         
     .sticker {
         z-index: 10;
         width: 100%;

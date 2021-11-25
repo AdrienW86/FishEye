@@ -1,5 +1,5 @@
 import LightBox from "../Models/lightbox-class.js"
-import Media from "../Models/media-class.js"
+import MediaFactory from "../Models/media-class.js"
 import like from "./like.js"
 
 export default async function Listbox  () {
@@ -46,8 +46,9 @@ export default async function Listbox  () {
 	label.innerHTML = "Trier par"
 
 	mediasLikes.forEach((media) => {
-		const listOfMedia = new Media(media)
-		listOfMedia.affichage()
+		const listOfMedia = MediaFactory.createMedia(media)
+		console.log(listOfMedia)
+		listOfMedia.affichage(Image)
 	})
 	const selectElt = document.querySelector("select")
 	const selectDiv = document.querySelector(".custom-select")
@@ -138,8 +139,8 @@ export default async function Listbox  () {
 				selection3.innerHTML = "titre"
 				console.log(newSelect.innerHTML)
 				mediasLikes.forEach((media) => {						
-					const listOfMedia = new Media(media)
-					listOfMedia.affichage()
+					const listOfMedia = MediaFactory.createMedia(media)
+					listOfMedia.affichage(data)
 				})
 				like()
 				LightBox.init()
@@ -150,8 +151,8 @@ export default async function Listbox  () {
 				selection3.innerHTML = "titre"
 				console.log(newSelect.innerHTML)
 				mediasDate.forEach((media) => {		
-					const listOfMedia = new Media(media)
-					listOfMedia.affichage()
+					const listOfMedia = MediaFactory.createMedia(media)
+					listOfMedia.affichage(data)
 				})
 				
 				like()
@@ -163,15 +164,15 @@ export default async function Listbox  () {
 				selection3.innerHTML = "popularité"
 				console.log(newSelect.innerHTML)
 				mediaTitle.forEach((media) => {
-					const listOfMedia = new Media(media)
-					listOfMedia.affichage()
+					const listOfMedia = MediaFactory.createMedia(media)
+					listOfMedia.affichage(data)
 				})
 				like()
 				LightBox.init()
 			}else{
 				mediaTitle.forEach((media) => {
-					const listOfMedia = new Media(media)
-					listOfMedia.affichage()
+					const listOfMedia = MediaFactory.createMedia(media)
+					listOfMedia.affichage(data)
 				})
 				like()
 				LightBox.init()	

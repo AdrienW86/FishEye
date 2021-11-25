@@ -28,8 +28,9 @@ fetch(datas)
 		createModal()
 		let modalName = document.querySelector(".modal-name")
 		modalName.innerHTML = selectedPhotographer.name
-		LightBox.init()	
 		Listbox()
+		LightBox.init()	
+		
 		like()
 			
 	})
