@@ -24,6 +24,7 @@ export default function createModal() {
 	/** *** Bouton de fermeture de la modale *****/
 	let closemodalbtn = document.createElement("button")
 	closemodalbtn.setAttribute("class", "close-modal-btn")
+	closemodalbtn.setAttribute("aria-labelledby", "Close Contact form")
 	headerModal.appendChild(closemodalbtn)
 
 	/** *** Formulaire de la modale *****/
@@ -46,7 +47,7 @@ export default function createModal() {
 	name.appendChild(errorName)
 
 	const inputName = document.createElement("input")
-	inputName.setAttribute("aria-labelledby", "name-label")
+	inputName.setAttribute("aria-labelledby", "First name")
 	inputName.setAttribute("id", "first")
 	inputName.setAttribute("name", "first")
 	inputName.setAttribute("class", "name-input")
@@ -67,7 +68,7 @@ export default function createModal() {
 	surname.appendChild(errorSurname)
 
 	const inputSurname = document.createElement("input")
-	inputName.setAttribute("aria-labelledby", "surname-label")
+	inputName.setAttribute("aria-labelledby", "Last name")
 	inputSurname.setAttribute("id", "last")
 	inputSurname.setAttribute("class", "surname-input")
 	inputSurname.setAttribute("label", "surname-label")
@@ -87,7 +88,7 @@ export default function createModal() {
 	letterBox.appendChild(errorEmail)
 
 	const inputEmail = document.createElement("input")
-	inputName.setAttribute("aria-labelledby", "email-label")
+	inputName.setAttribute("aria-labelledby", "Email")
 	inputEmail.setAttribute("id", "email")
 	inputEmail.setAttribute("class", "email-input")
 	inputEmail.setAttribute("label", "email-label")
@@ -107,7 +108,7 @@ export default function createModal() {
 	message.appendChild(errorMessage)
 
 	const inputMessage = document.createElement("textarea")
-	inputName.setAttribute("aria-labelledby", "message-label")
+	inputMessage.setAttribute("aria-labelledby", "Your message")
 	inputMessage.setAttribute("id", "message")
 	inputMessage.setAttribute("class", "message-input")
 	inputMessage.setAttribute("label", "message-label")
@@ -117,6 +118,7 @@ export default function createModal() {
 	let submit = document.createElement("button")
 	submit.setAttribute("class", "submit-btn")
 	submit.setAttribute("type", "submit")
+	submit.setAttribute("aria-labelledby", " Send")
 	submit.innerHTML = "Envoyer"
 	form.appendChild(submit)
 
@@ -130,8 +132,6 @@ export default function createModal() {
 			btn.click()
 		}
 	}))
-
-	
 
 	/** *** Fermeture de la modale *****/
 
@@ -198,26 +198,21 @@ export default function createModal() {
 	let main = document.getElementById("liste_media")
 	let banner = document.getElementById("banner")
 	console.log(main)
-	// add all the elements inside modal which you want to make focusable
 
-	function launchModal () {
-		//main.setAttribute("tabindex", "-1")
-	//	modal.setAttribute("tabindex", "0")
+	function launchModal () {	
 		
 		const  focusableElements =
 		"button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])"
-			
-		
+					
 		const firstFocusableElement = modal.querySelectorAll(focusableElements)[0] // get first element to be focused inside modal
 		const focusableContent = modal.querySelectorAll(focusableElements)
 		const lastFocusableElement = focusableContent[focusableContent.length - 1] // get last element to be focused inside modal
-		
-		
+			console.log (firstFocusableElement)	
+			console.log(lastFocusableElement)
 		document.addEventListener("keydown", function(e) {
 			let isTabPressed = e.key === "Tab" 
 			let escape = e.key === "Escape"
-		
-			
+					
 			if (!isTabPressed && !escape) {
 				return
 			}
@@ -232,29 +227,20 @@ export default function createModal() {
 					e.preventDefault()
 				}
 			}
-			
-			
+						
 			else { // if tab key is pressed
 				if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
 					firstFocusableElement.focus() // add focus for the first focusable element
 					e.preventDefault()
 				}
 			}
-		})
-		
-		firstFocusableElement.focus()
-
-
-		
+		})		
+		firstFocusableElement.focus()		
 		modal.style.display = "block"
 		document.querySelector(".modal").focus()
-		banner.setAttribute("aria-hidden", "true")
-		
-	
+		banner.setAttribute("aria-hidden", "true")	
 	}
 	function closeModal () {
 		modal.style.display = "none"
-
-	}
-	
+	}	
 }

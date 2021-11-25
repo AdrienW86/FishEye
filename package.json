@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AdrienW86/FishEye#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "eslint": "^7.32.0"
   }
 }

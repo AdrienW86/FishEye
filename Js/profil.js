@@ -4,8 +4,6 @@ import LightBox from "../Models/lightbox-class.js"
 import createModal from "../Utils/modal.js"
 import like from "../Utils/like.js"
 
-Listbox()
-
 const datas = "/datas.json"
 
 fetch(datas)
@@ -26,12 +24,13 @@ fetch(datas)
 		// Création de la carte de visite du photographe
 		selectedPhotographer = new Photographer(selectedPhotographer)
 		selectedPhotographer.createCard()
-		//clavier
 
 		createModal()
 		let modalName = document.querySelector(".modal-name")
 		modalName.innerHTML = selectedPhotographer.name
-
-		like()
 		LightBox.init()	
+		Listbox()
+		like()
+			
 	})
+

@@ -1,13 +1,73 @@
-/* *{
-    border: 2px solid black
-}
-*/
+
 header {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 50px;
 }
+
+p, p.description {
+    line-height: 1.6;
+    font-size: 1em
+}
+@media all and (max-device-width:480px) 
+
+{
+    body {
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+    }
+    main {
+        overflow: hidden;
+    }
+   nav.nav-tag {
+       display: -webkit-box;
+       display: -ms-flexbox;
+       display: flex;
+   }
+    div.tag-list 
+    {
+      display: none;
+      width: 100%;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+  }
+  a.tag {
+      display: block
+  }
+  div.box-logo {
+     
+      width: 48%;
+      margin: 0
+  }
+  div.box_title {
+      width: 48%
+  }
+  a.logo {
+    margin-top: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 30px;
+    width: 120px;
+    background: url(../images/svg/logo-responsive.svg) center center no-repeat ;
+}
+ h1.title {
+     font-size: 1em;
+     margin-right: 30px;
+ }
+}
+
 body {
     scroll-behavior: smooth;
 }
@@ -28,25 +88,38 @@ button.scroll:hover {
 }
 
 .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    position:absolute;
+    left: 10px;
     height: 50px;
     width: 240px;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
     background: url(../images/svg/logo.svg) center center no-repeat ;
+    
 }
 
 .nav-tag {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;  
-    justify-content: space-around;
+    -ms-flex-pack: distribute;  
+        justify-content: space-around;
 }
 
 .tag-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    position:absolute;
+    position: center;
     margin-top: 40px;
     margin-right: 2%;
     margin-left: 2%;
-    width: 45%
+
 }
 
 .tag {
@@ -67,15 +140,20 @@ button.scroll:hover {
 }
 
 .tag.active{
-    box-shadow: 1px 1px 10px #901C1C inset, 0 1px 0 #901C1C;  
+    -webkit-box-shadow: 1px 1px 10px #901C1C inset, 0 1px 0 #901C1C;
+            box-shadow: 1px 1px 10px #901C1C inset, 0 1px 0 #901C1C;  
     }
 .box_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 310px;;
 }
 h1 {
     color: #901C1C;
     font-size: 2.5em;
+    position: absolute;
+    right: 1%
     
 }
 
@@ -83,22 +161,36 @@ h1 {
 
 #photographes {
     padding-top: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center;
+    -ms-flex-wrap: wrap; 
+        flex-wrap: wrap; 
+    -webkit-box-pack: center; 
+        -ms-flex-pack: center; 
+            justify-content: center;
     margin: auto;
 }
 
 .card {
     width: 400px;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 20px;
 }
 
 .header-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; 
     text-decoration: none;    
     width: 400px;
     background-color: white;
@@ -111,27 +203,43 @@ h1 {
 
 .avatar {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .photo-profil {
     border-radius: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 h2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-size: 2.7em;
     width: 100%;
     color:  rgba(211, 87, 60, 1);
 }
 
 .main-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column ;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column ;
+            flex-direction: column ;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 h3 {
@@ -151,9 +259,13 @@ h3 {
 }
 
 .footer-tag {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 400px;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding:0
 }
 

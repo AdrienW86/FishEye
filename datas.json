@@ -70,7 +70,8 @@
         "tags": ["fashion"],
         "likes": 62,
         "date": "2011-12-08",
-        "price": 55
+        "price": 55,
+        "altText": "une femme en survêtement jaune"
       },
       {
         "id": 8520927,
@@ -80,7 +81,8 @@
         "tags": ["fashion"],
         "likes": 11,
         "date": "2011-11-06",
-        "price": 55
+        "price": 55,
+        "altText": "une femme en habit imprimé jungle"
       },
       {
         "id": 9025895,
@@ -90,7 +92,8 @@
         "tags": ["fashion"],
         "likes": 72,
         "date": "2013-08-12",
-        "price": 55
+        "price": 55,
+        "altText": "une femme habillé d'une veste chic et tenant un sac à main rouge"
       },
       {
         "id": 9275938,
@@ -100,7 +103,8 @@
         "tags": ["events"],
         "likes": 69,
         "date": "2018-02-22",
-        "price": 55
+        "price": 55,
+        "altText": "lieu de mariage dans un jardin"
       },
       {
         "id": 2053494,
@@ -110,7 +114,8 @@
         "tags": ["events"],
         "likes": 2,
         "date": "2020-05-25",
-        "price": 55
+        "price": 55,
+        "altText": "un couple est accueilli par la foule"
       },
       {
         "id": 7324238,
@@ -120,7 +125,8 @@
         "tags": ["events"],
         "likes": 33,
         "date": "2019-06-12",
-        "price": 55
+        "price": 55,
+        "altText": "table d'anniversaire pour 18 ans"
       },
       {
         "id": 8328953,
@@ -130,7 +136,8 @@
         "tags": ["art"],
         "likes": 24,
         "date": "2011-12-08",
-        "price": 100
+        "price": 100,
+        "altText": "sculpture d'un cheval en bois"
       },
       {
         "id": 7502053,
@@ -140,7 +147,8 @@
         "tags": ["art"],
         "likes": 88,
         "date": "2007-05-07",
-        "price": 55
+        "price": 55,
+        "altText": "peinture d'un homme dans un triangle sur fond coloré"
       },
       {
         "id": 8523492,
@@ -150,7 +158,8 @@
         "tags": ["art"],
         "likes": 24,
         "date": "2018-05-05",
-        "price": 55
+        "price": 55,
+        "altText": "des graffitis sous un tunnel"
       },
       {
         "id": 75902334,
@@ -160,7 +169,8 @@
         "tags": ["art"],
         "likes": 75,
         "date": "2019-11-25",
-        "price": 55
+        "price": 55,
+        "altText": "peinture d'une multitude d'oiseaux burlesques"
       },
   
       {
@@ -171,7 +181,8 @@
         "tags": ["sport"],
         "likes": 52,
         "date": "2013-02-30",
-        "price": 70
+        "price": 70,
+        "altText": "photo prise du dessus de 3 sportifs faisant de l'aviron"
       },
       {
         "id": 92758372,
@@ -181,7 +192,8 @@
         "tags": ["fashion"],
         "likes": 58,
         "date": "2018-07-17",
-        "price": 70
+        "price": 70,
+        "altText": "un couple fermant les yeux avec un bras levé"
       },
       {
         "id": 32958383,
@@ -191,7 +203,8 @@
         "tags": ["fashion"],
         "likes": 11,
         "date": "2019-08-12",
-        "price": 70
+        "price": 70,
+        "altText": "une femme en robe rouge descend des marches en extérieur"
       },
       {
         "id": 928587383,
@@ -201,7 +214,8 @@
         "tags": ["events"],
         "likes": 2,
         "date": "2019-01-02",
-        "price": 70
+        "price": 70,
+        "altText": "une conférence avec plusieurs personnes"
       },
       {
         "id": 725639493,
@@ -211,7 +225,8 @@
         "tags": ["events"],
         "likes": 3,
         "date": "2019-05-20",
-        "price": 70
+        "price": 70,
+        "altText": "plusieurs personnes écoute un homme faisant un exposé"
       },
       {
         "id": 23394384,
@@ -221,7 +236,8 @@
         "tags": ["events"],
         "likes": 52,
         "date": "2019-07-18",
-        "price": 70
+        "price": 70,
+        "altText": "photo noir et blanc d'une femme jouant du synthétiseur sur scène"
       },
       {
         "id": 87367293,
@@ -231,7 +247,8 @@
         "tags": ["events"],
         "likes": 23,
         "date": "2018-02-22",
-        "price": 70
+        "price": 70,
+        "altText": "une femme chante sur scène"
       },
       {
         "id": 593834784,
@@ -241,7 +258,8 @@
         "tags": ["animals"],
         "likes": 52,
         "date": "2017-03-13",
-        "price": 70
+        "price": 70,
+        "altText": "un cerf dans la nature"
       },
       {
         "id": 83958935,
@@ -251,7 +269,8 @@
         "tags": ["animals"],
         "likes": 52,
         "date": "2016-06-12",
-        "price": 70
+        "price": 70,
+        "altText": "un chien joue dans le sable sur la plage"
       },
   
       {
@@ -262,7 +281,8 @@
         "tags": ["travel"],
         "likes": 23,
         "date": "2017-03-18",
-        "price": 45
+        "price": 45,
+        "altText": "survol d'une montagne"
       },
       {
         "id": 343423425,
@@ -272,7 +292,8 @@
         "tags": ["travel"],
         "likes": 101,
         "date": "2017-04-03",
-        "price": 45
+        "price": 45,
+        "altText": "source d'eau chaude naturelle"
       },
       {
         "id": 73434243,
@@ -282,7 +303,8 @@
         "tags": ["travel"],
         "likes": 99,
         "date": "2018-04-30",
-        "price": 45
+        "price": 45,
+        "altText": "route qui zig-zag entre des collines"
       },
       {
         "id": 23425523,
@@ -292,7 +314,8 @@
         "tags": ["travel"],
         "likes": 34,
         "date": "2016-04-05",
-        "price": 45
+        "price": 45,
+        "altText": "un pont dans la jungle"
       },
       {
         "id": 23134513,
@@ -302,7 +325,8 @@
         "tags": ["travel"],
         "likes": 23,
         "date": "2017-03-18",
-        "price": 45
+        "price": 45,
+        "altText": "une barque sur un fleuve de montagne"
       },
       {
         "id": 92352352,
@@ -312,17 +336,19 @@
         "tags": ["portrait"],
         "likes": 66,
         "date": "2018-05-24",
-        "price": 45
+        "price": 45,
+        "altText": "une jeune femme souriante"
       },
       {
         "id": 34513453,
         "photographerId": 527,
-        "title": "Shaw Potrait",
+        "title": "Shaw Portrait",
         "image": "Portrait_Shaw.jpg",
         "tags": ["portait"],
         "likes": 52,
         "date": "2017-04-21",
-        "price": 45
+        "price": 45,
+        "altText": "portrait en noir et blanc d'un homme"
       },
       {
         "id": 23523533,
@@ -332,7 +358,8 @@
         "tags": ["portait"],
         "likes": 95,
         "date": "2018-11-02",
-        "price": 45
+        "price": 45,
+        "altText": "portrait d'une femme sur fond blanc"
       },
       {
         "id": 525834234,
@@ -342,7 +369,8 @@
         "tags": ["portait"],
         "likes": 25,
         "date": "2019-01-02",
-        "price": 45
+        "price": 45,
+        "altText": "portrait d'un homme sur fond blanc"
       },
   
       {
@@ -353,7 +381,8 @@
         "tags": ["travel"],
         "likes": 88,
         "date": "2019-02-03",
-        "price": 45
+        "price": 45,
+        "altText": "un homme seul sur un rocher dans la montagne"
       },
       {
         "id": 625025343,
@@ -363,7 +392,8 @@
         "tags": ["travel"],
         "likes": 85,
         "date": "2019-04-03",
-        "price": 45
+        "price": 45,
+        "altText": "un village pittoresque le long d'une baie rocheuse"
       },
       {
         "id": 2525345343,
@@ -373,7 +403,8 @@
         "tags": ["portait"],
         "likes": 34,
         "date": "2019-04-07",
-        "price": 45
+        "price": 45,
+        "altText": "photo en noir et blanc d'une petite fille qui semble s'ennuyer"
       },
       {
         "id": 2523434634,
@@ -383,7 +414,8 @@
         "tags": ["portait"],
         "likes": 63,
         "date": "2019-04-07",
-        "price": 45
+        "price": 45,
+        "altText": "une femme avec des lunettes dans un restaurant vintage"
       },
       {
         "id": 398847109,
@@ -393,7 +425,8 @@
         "tags": ["portait"],
         "likes": 55,
         "date": "2019-06-20",
-        "price": 45
+        "price": 45,
+        "altText": "portrait en noir et blanc d'une femme"
       },
       {
         "id": 2534342,
@@ -403,7 +436,8 @@
         "tags": ["events"],
         "likes": 25,
         "date": "2019-06-21",
-        "price": 45
+        "price": 45,
+        "altText": "une table de fête"
       },
       {
         "id": 65235234,
@@ -413,7 +447,8 @@
         "tags": ["events"],
         "likes": 52,
         "date": "2019-06-25",
-        "price": 45
+        "price": 45,
+        "altText": "une couple de mariée dans la nature"
       },
       {
         "id": 23523434,
@@ -423,7 +458,8 @@
         "tags": ["events"],
         "likes": 77,
         "date": "2019-06-28",
-        "price": 45
+        "price": 45,
+        "altText": "une couple de mariée"
       },
       {
         "id": 5234343,
@@ -433,7 +469,8 @@
         "tags": ["animals"],
         "likes": 142,
         "date": "2019-08-23",
-        "price": 60
+        "price": 60,
+        "altText": "des chevaux sauvages galopent en montagne"
       },
       {
         "id": 95234343,
@@ -443,9 +480,9 @@
         "tags": ["animals"],
         "likes": 59,
         "date": "2019-07-02",
-        "price": 60
-      },
-  
+        "price": 60,
+        "altText": "un oiseau aux couleurs de l'arc-en-ciel"
+      },  
       {
         "id": 52343416,
         "photographerId": 195,
@@ -454,7 +491,8 @@
         "tags": ["travel"],
         "likes": 25,
         "date": "2019-04-03",
-        "price": 60
+        "price": 60,
+        "altText": "une tour au Japon"
       },
       {
         "id": 2523434,
@@ -464,7 +502,8 @@
         "tags": ["travel"],
         "likes": 53,
         "date": "2019-05-06",
-        "price": 60
+        "price": 60,
+        "altText": "des gondoles sur l'eau en pleine ville"
       },
       {
         "id": 95293534,
@@ -474,7 +513,8 @@
         "tags": ["travel"],
         "likes": 33,
         "date": "2019-05-12",
-        "price": 60
+        "price": 60,
+        "altText": "la montagne et la forêt qui se reflète dans un lac"
       },
       {
         "id": 356234343,
@@ -484,7 +524,8 @@
         "tags": ["travel"],
         "likes": 53,
         "date": "2019-06-20",
-        "price": 60
+        "price": 60,
+        "altText": "un vélo devant un escalier urbain"
       },
       {
         "id": 235234343,
@@ -494,7 +535,8 @@
         "tags": ["travel"],
         "likes": 63,
         "date": "2019-06-26",
-        "price": 60
+        "price": 60,
+        "altText": "une porte qui donne sur l'horizon"
       },
       {
         "id": 6234234343,
@@ -504,7 +546,8 @@
         "tags": ["architecture"],
         "likes": 52,
         "date": "2019-06-30",
-        "price": 60
+        "price": 60,
+        "altText": "deux batiments aux styles opposés"
       },
       {
         "id": 6525666253,
@@ -514,7 +557,8 @@
         "tags": ["architecture"],
         "likes": 63,
         "date": "2019-07-20",
-        "price": 60
+        "price": 60,
+        "altText": "un village ancien sur une montagne"
       },
       {
         "id": 98252523433,
@@ -524,7 +568,8 @@
         "tags": ["architecture"],
         "likes": 88,
         "date": "2020-01-05",
-        "price": 60
+        "price": 60,
+        "altText": "la célèbre tour de Pise"
       },
       {
         "id": 9259398453,
@@ -534,7 +579,8 @@
         "tags": ["architecture"],
         "likes": 57,
         "date": "2020-01-20",
-        "price": 65
+        "price": 65,
+        "altText": "vidéo d'une intersection gigantesque sur une grande autoroute"
       },
       {
         "id": 3523523534,
@@ -544,7 +590,8 @@
         "tags": ["architecture"],
         "likes": 54,
         "date": "2020-05-05",
-        "price": 60
+        "price": 60,
+        "altText": "un bâtiment à l'angle d'une rue sous un ciel bleu"
       },
   
       {
@@ -555,7 +602,8 @@
         "tags": ["sport"],
         "likes": 150,
         "date": "2018-02-30",
-        "price": 70
+        "price": 70,
+        "altText": "une femme en train de faire de la gymnastique"
       },
       {
         "id": 235234343,
@@ -565,7 +613,8 @@
         "tags": ["sport"],
         "likes": 101,
         "date": "2018-03-05",
-        "price": 65
+        "price": 65,
+        "altText": "une femme en train de faire de l'escalade"
       },
       {
         "id": 235343222,
@@ -575,7 +624,8 @@
         "tags": ["sport"],
         "likes": 103,
         "date": "2018-03-10",
-        "price": 70
+        "price": 70,
+        "altText": "une femme en train de faire du surf sous un tunnel d'eau"
       },
       {
         "id": 7775342343,
@@ -585,7 +635,8 @@
         "tags": ["sport"],
         "likes": 77,
         "date": "2018-04-16",
-        "price": 50
+        "price": 50,
+        "altText": "un skieur réalise un saut"
       },
       {
         "id": 9253445784,
@@ -595,7 +646,8 @@
         "tags": ["sport"],
         "likes": 88,
         "date": "2018-04-22",
-        "price": 65
+        "price": 65,
+        "altText": "une course de vitesse féminine"
       },
       {
         "id": 22299394,
@@ -605,7 +657,8 @@
         "tags": ["sport"],
         "likes": 95,
         "date": "2018-04-27",
-        "price": 70
+        "price": 70,
+        "altText": "un homme fait un saut en skateboard"
       },
       {
         "id": 3452342633,
@@ -615,7 +668,8 @@
         "tags": ["architecture"],
         "likes": 52,
         "date": "2018-05-03",
-        "price": 75
+        "price": 75,
+        "altText": "un bâtiment très lumineux "
       },
       {
         "id": 939234243,
@@ -625,7 +679,8 @@
         "tags": ["architecture"],
         "likes": 55,
         "date": "2018-05-10",
-        "price": 72
+        "price": 72,
+        "altText": "un batiment moderne se mélangeant harmonieusement avec l'eau"
       },
       {
         "id": 222959233,
@@ -635,7 +690,8 @@
         "tags": ["architecture"],
         "likes": 85,
         "date": "2018-05-15",
-        "price": 71
+        "price": 71,
+        "altText": "un batiment moderne avec des courbes impressionnantes"
       },
       {
         "id": 965933434,
@@ -645,7 +701,8 @@
         "tags": ["architecture"],
         "likes": 66,
         "date": "2018-05-20",
-        "price": 58
+        "price": 58,
+        "altText": "deux batiment moderne parfaitement symétriques"
       },
       {
         "id": 777723343,
@@ -655,7 +712,8 @@
         "tags": ["architecture"],
         "likes": 79,
         "date": "2018-05-21",
-        "price": 80
+        "price": 80,
+        "altText": "un batiment blanc très lumineux et très moderne"
       }
     ]
   }

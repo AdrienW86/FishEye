@@ -1,7 +1,5 @@
 import Photographer from "../Models/photographer-class.js"
 import createHeader from "../Utils/header.js"
-//import {getDatas,test, photographers}  from "../Utils/datas.js"
-
 
 createHeader()
 const datas = "/datas.json"	
@@ -52,9 +50,6 @@ fetch(datas)
 		function goContent() {
 			window.scroll(0, -bodyHeight)
 		}		
-
-	
-
 	})
 
 

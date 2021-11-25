@@ -9,6 +9,7 @@ export default class Media {
 		this.likes = data.likes
 		this.date = data.date
 		this.price = data.price
+		this.altText = data.altText
 	}
 
 	affichage () {
@@ -34,6 +35,7 @@ export default class Media {
 			image.setAttribute("class", "media-single-photographer")
 			image.setAttribute("tabindex", "0")
 			image.setAttribute("alt", "photo")
+			image.setAttribute("alt-text", this.altText)
 			image.setAttribute("value", this.title)
 			image.src = "../images/" + this.photographerId + "/" + this.image
 			buttonCard.appendChild(image)
@@ -43,6 +45,8 @@ export default class Media {
 			const video = document.createElement("video")
 			video.setAttribute("class", "media-single-photographer")
 			video.setAttribute("tabindex", "0")
+			video.setAttribute("alt", "vidéo")
+			video.setAttribute("alt-text", this.altText)
 			video.setAttribute("value", this.title)
 			video.src = "../images/" + this.photographerId + "/" + this.video + "#t=0.1"
 			video.setAttribute("type", "video/mp4")
@@ -67,6 +71,7 @@ export default class Media {
 		//Nombres de likes
 		const nmbLikes = document.createElement("div")
 		nmbLikes.setAttribute("class", "nombre")
+		nmbLikes.setAttribute("aria-label", "nombre de likes")
 		nmbLikes.innerHTML = this.likes
 		detailsMedia.appendChild(nmbLikes)
 
@@ -74,6 +79,7 @@ export default class Media {
 		const likes = document.createElement("div")
 		likes.setAttribute("class", "btn-like")
 		likes.setAttribute("tabindex", "0")
+		likes.setAttribute("aria-label", "likes")
 		likes.innerHTML = svg
 		detailsMedia.appendChild(likes)
 	}

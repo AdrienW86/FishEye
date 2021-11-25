@@ -1,16 +1,10 @@
-body {
-    margin: 0px
-}
-.lightbox-title {
-    width: 90%;
-    text-align: left;
-    color: rgba(144, 28, 28, 1) 
-}
-
 .box {
     padding: 16px;
+    display: -ms-grid;
     display: grid;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 16px;
 }
@@ -34,7 +28,10 @@ body {
     background-color: rgba(255, 255, 255, 1);
     z-index : 10;
     overflow: auto;
-    animation: lightboxIn .5s;
+    -webkit-animation: lightboxIn .5s;
+            animation: lightboxIn .5s;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
     transition: opacity .3s
 }
 .lightbox.fadeOut {
@@ -44,7 +41,7 @@ body {
 .lightbox-next, .lightbox-prev {
     border: none; 
     background: url(../images/svg/arrow.svg) center center / 16px 28px no-repeat; 
-    width: 16x;
+    width: 16px;
     height: 100%;
     position: fixed;
     right: 0;
@@ -56,7 +53,9 @@ body {
 .lightbox-prev {
     right: 50px;
     left: 0;
-    transform: rotate(180deg)
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg)
 }
 
 .lightbox-close {
@@ -73,6 +72,8 @@ body {
 .lightbox button {
     opacity: .5;
     cursor: pointer;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
     transition: opacity .3s;
     text-indent: -3000px;
 }
@@ -87,21 +88,33 @@ body {
 .lightbox__container img {
     width: 90%;
     height: 80vh;
-    animation: lightboxIn .5s;
+    -webkit-animation: lightboxIn .5s;
+            animation: lightboxIn .5s;
 }
 
 .lightbox__container video {
     width: 90%;
     height: 80vh;
-    animation: lightboxIn .5s;
-    object-fit: cover;
+    -webkit-animation: lightboxIn .5s;
+            animation: lightboxIn .5s;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .lightbox__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-left: 50px;
     margin-right: 50px;
     min-height: 100vh;
@@ -112,6 +125,16 @@ body {
     height: 38px;
     opacity: .5;
     background: url(../images/svg/loader.svg) center center no-repeat ;
+}
+.lightbox-title {
+   color :rgba(144, 28, 28, 1);
+   width: 20%;
+   margin-right: 70%
+}
+
+@-webkit-keyframes lightboxIn {
+    from {opacity: 0;}
+    to   {opacity: 1;}
 }
 
 @keyframes lightboxIn {

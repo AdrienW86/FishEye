@@ -32,7 +32,7 @@ export default class Photographer {
 
 		// Photo de profil
 		const picture = document.createElement("img")
-		picture.setAttribute("src", "alt")
+		picture.setAttribute("alt", "")
 		picture.setAttribute("class", "photo-profil")
 		avatar.appendChild(picture)
 		picture.src = "../Images/" + this.portrait
@@ -72,7 +72,7 @@ export default class Photographer {
 		card.appendChild(footerCard)
 
 		// Tag du footer de la carte
-		const tag = document.createElement("ul")
+		const tag = document.createElement("div")
 		tag.setAttribute("class", "footer-tag")
 		footerCard.appendChild(tag)
 
@@ -118,7 +118,8 @@ export default class Photographer {
 		description.appendChild(onePhotographerTagline)
 
 		// Hashtag du phototgraphe
-		const tag = document.createElement("ul")
+		const tag = document.createElement("div")
+		tag.setAttribute("arialebelledby"," liste des tags")
 		tag.setAttribute("class", "footer-tag")
 		description.appendChild(tag)
 
@@ -141,6 +142,7 @@ export default class Photographer {
 		modalBtn.setAttribute("tabindex", "0")
 		modalBtn.setAttribute("class", "modal-btn")
 		modalBtn.setAttribute("type", "submit")
+		modalBtn.setAttribute("aria-label", "Contact Me")
 		modalBtn.innerHTML = "Contactez-moi"
 		boxBtn.appendChild(modalBtn)
 

@@ -9,24 +9,34 @@ export default function createHeader() {
 	btnContent.innerHTML ="Passer au contenu"
 	nav.appendChild(btnContent)
 	// Logo
+	let boxLogo = document.createElement("div")
+	boxLogo.setAttribute("class","box-logo")
+	nav.appendChild(boxLogo)
+
 	let logo = document.createElement("a")
 	logo.setAttribute("class", "logo")
+	logo.setAttribute("aria-label", "logo du site")
+	logo.setAttribute("alt", "Fisheye Home page")
+	logo.setAttribute("alt-text", "lien avec le logo de Fisheye qui vous ramene sur la page d'accueil index.html ")
 	logo.setAttribute( "href","./index.html")
-	logo.setAttribute("alt", "Fisheye Home page")		
-	nav.appendChild(logo)
-	// Création des tags
-	let tags = document.createElement("div")
-	tags.setAttribute("class", "tag-list")
-	nav.appendChild(tags)
+			
+	boxLogo.appendChild(logo)
+
 	//Titre
 	let boxTitle = document.createElement("div")
 	boxTitle.setAttribute("class", "box_title")
 	nav.appendChild(boxTitle)
 
 	let title = document.createElement("h1")
+	title.setAttribute("class", "title")
 	title.innerHTML = "Nos photographes"
 	boxTitle.appendChild(title)
-	
+
+	// Création des tags
+	let tags = document.createElement("div")
+	tags.setAttribute("class", "tag-list")
+	nav.appendChild(tags)
+
 	let portrait = document.createElement("a")
 	let art = document.createElement("a")
 	let fashion = document.createElement("a")

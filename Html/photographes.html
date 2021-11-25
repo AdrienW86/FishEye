@@ -5,27 +5,30 @@
         <meta name="descprition" content="Fisheye">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Css/photographer.css">
-        <link rel="stylesheet" href="../Css/lightbox.css">        
+        <link rel="stylesheet" href="../Css/lightbox.css"> 
+        <link rel="shortcut icon" type="image/png"  href="favicon.png">
         <title>FishEye</title>
     </head>
 <body>
     <header>      
-        <a class="logo" href="./index.html"></a>                
+        <a class="logo" href="./index.html" alt="FishEye Home page" aria-label="Logo du site" alt-text="lien qui ramene vers l'accueil"></a>                
     </header> 
-    <div id ="banner"></div>  
+    <main>
+        <div id ="banner"></div>  
     <section class="listbox">
-        <label for="custom-select" class="label-custom"> Trier par</label>  
-            <div class="custom-select">
-                <select name="" id="">
-                    <option class= "option1" value="1">popularité</option>              
-                    <option class= "option2" value="2">date</option>
-                    <option class= "option3" value="3">titre</option>       
+        <label for="custom-select" class="label-custom" aria-label="Menu de selection "></label>  
+            <div class="custom-select" aria-labelledby="Order by">
+                <select name="" id="">                                 
+                    <option class= "option1" value="1"></option>
+                    <option class= "option2" value="2"></option>   
+                    <option class= "option3" value="3"></option>
                 </select>      
             </div>
     </section> 
-    <main id ="liste_media"></main>
+    <section id ="liste_media"></section>
         <div class= "modal"></div>
-        <div class="box"></div>
+        <div class="box" tabindex="-1"></div>
+    </main>  
     <script src ="/Js/profil.js" type="module"></script>   
 </body>
 </html>

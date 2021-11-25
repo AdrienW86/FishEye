@@ -6,8 +6,7 @@ export default class LightBox {
 		let Arraytitles = titles.map(title => title.innerHTML)
 		let main = document.getElementById("liste_media")
 		let banner = document.getElementById("banner")
-		console.log(banner)
-		console.log(main)
+		
 		
 		links.forEach(link =>
 			link.addEventListener( "click", function (e) {
@@ -45,7 +44,8 @@ export default class LightBox {
 		this.onKeyUp = this.onKeyUp.bind(this)
 		const box = document.querySelector(".box")
 		box.appendChild(this.element)
-		document.addEventListener("keyup", this.onKeyUp)		
+		document.addEventListener("keyup", this.onKeyUp)
+		
 	}
 
 	loadMedia (url, title) {
@@ -57,11 +57,13 @@ export default class LightBox {
 		const p = document.createElement("p")
 		p.classList.add("lightbox-title")
 		container.innerHTML = "" // evite d'afficher une deuxième image en dessous de la première
+		container.setAttribute("tabindex", "-1")
 		container.appendChild(loader)
 		container.focus()
 		
 		if (url.includes("jpg")) {
 			const image = new Image()
+			image.setAttribute("tabindex", "0")
 			image.onload = () => {
 				container.removeChild(loader)
 				container.appendChild(image)
@@ -78,7 +80,8 @@ export default class LightBox {
 			container.appendChild(p)
 			this.url = url
 			this.title = title			
-			video.src = url		
+			video.src = url	
+			video.setAttribute("tabindex", "0")	
 			video.setAttribute("controls", "")
 			video.setAttribute("type", "video/mp4")
 			p.innerHTML = title
@@ -139,13 +142,13 @@ export default class LightBox {
 			this.Arraytitles[positionTitle - 1]
 		)
 	}
-
+	
 	buildDom () {
 		const dom = document.createElement("div")
 		dom.classList.add("lightbox")
-		dom.innerHTML = `<button class="lightbox-close">       
-                               <button class="lightbox-next"> </button>
-                               <button class="lightbox-prev"> </button>
+		dom.innerHTML = `<button class="lightbox-close" aria-label= "image closeup view" tabindex="0"></button>      
+                         <button class="lightbox-next"  aria-label= "Next image" tabindex="0"> </button>
+                         <button class="lightbox-prev"  aria-label= "Previous image" tabindex="0"> </button>
                                <div class="lightbox__container"> </div>`
 		dom.querySelector(".lightbox-close").addEventListener("click", this.close.bind(this))
 		dom.querySelector(".lightbox-next").addEventListener("click", this.next.bind(this))

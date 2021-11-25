@@ -39,6 +39,8 @@ export default async function Listbox  () {
 	let box = document.createElement("div")
 	box.setAttribute("class", "container")
 	list.appendChild(box)
+	let label = document.querySelector(".label-custom")
+	label.innerHTML = "Trier par"
 
 	mediasLikes.forEach((media) => {
 		const listOfMedia = new Media(media)
@@ -49,31 +51,44 @@ export default async function Listbox  () {
 	const newSelect = document.createElement("div")
 	newSelect.setAttribute("tabindex", "0")
 	newSelect.classList.add("new-select")	
-	newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML
+	newSelect.innerHTML = "popularité"
 	selectDiv.appendChild(newSelect)
+	
 	const newMenu = document.createElement("div")
 	newMenu.classList.add("select-items", "select-hide")
 
 	let option1 = document.querySelector(".option1")
-	let option2 = document.querySelector(".option2")	
+	option1.innerHTML = "popularité"	
+	let option2 = document.querySelector(".option2")
+	option2.innerHTML ="date"
 	let option3 = document.querySelector(".option3")
+	option3.innerHTML ="titre"
 
 	for (let option of selectElt.options) {
 		const newOption = document.createElement("div")
-		newOption.setAttribute("class", "selection")
+		newOption.setAttribute("class", "selection" )
 		newOption.setAttribute("tabindex", "0")
 		newOption.innerHTML = option.innerHTML
 		newMenu.appendChild(newOption)
-
+		console.log(newOption)
+		if(newOption.innerHTML == "popularité") {
+			newOption.setAttribute("class", "selection1")
+		}
+		if(newOption.innerHTML == "date") {
+			newOption.setAttribute("class", "selection2")
+		}
+		if(newOption.innerHTML == "titre") {
+			newOption.setAttribute("class", "selection3")
+		}
 		newOption.addEventListener("click", function () {
 			for(let option of selectElt.options) {
 				if(option.innerHTML === this.innerHTML) {
-					newSelect.innerHTML = this.innerHTML					
+					console.log(option.innerHTML)
+					newSelect.innerHTML = this.innerHTML								
 				}
 			}
 			newSelect.click()
 		})
-
 		newOption.addEventListener("keydown", function (e) {
 			if(e.key === "Enter") {
 				for(let option of selectElt.options) {
@@ -95,9 +110,15 @@ export default async function Listbox  () {
 		}
 	})
 
-	function launchListbox() {
-		document.querySelector(".new-select")
+	let selection1 = document.querySelector(".selection1")
+	let selection2 = document.querySelector(".selection2")
+	let selection3 = document.querySelector(".selection3")
 
+	LightBox.init()	
+
+	function launchListbox() {
+
+		document.querySelector(".new-select")
 		newSelect.addEventListener("click", function(e) {
 			let rembox = document.querySelector(".container")
 			rembox.remove()
@@ -108,7 +129,13 @@ export default async function Listbox  () {
 			this.nextSibling.classList.toggle("select-hide")
 			this.classList.toggle("active")
 
-			if(newSelect.innerHTML == option1.innerHTML || newSelect.innerHTML == null) {
+		
+
+			if(newSelect.innerHTML == "popularité" || newSelect.innerHTML == null) {
+				selection1.remove()
+				selection2.innerHTML = "date"
+				selection3.innerHTML = "titre"
+				console.log(newSelect.innerHTML)
 				mediasLikes.forEach((media) => {						
 					const listOfMedia = new Media(media)
 					listOfMedia.affichage()
@@ -116,22 +143,38 @@ export default async function Listbox  () {
 				like()
 				LightBox.init()
 
-			}else if(newSelect.innerHTML == option2.innerHTML) {
+			}else if(newSelect.innerHTML == "date") {
+				selection1.remove()
+				selection2.innerHTML = "popularité"
+				selection3.innerHTML = "titre"
+				console.log(newSelect.innerHTML)
 				mediasDate.forEach((media) => {		
 					const listOfMedia = new Media(media)
 					listOfMedia.affichage()
 				})
+				
 				like()
 				LightBox.init()
             
-			}else if(newSelect.innerHTML == option3.innerHTML) {
+			}else if(newSelect.innerHTML == "titre") {
+				selection1.remove()
+				selection2.innerHTML = "date"
+				selection3.innerHTML = "popularité"
+				console.log(newSelect.innerHTML)
 				mediaTitle.forEach((media) => {
 					const listOfMedia = new Media(media)
 					listOfMedia.affichage()
 				})
 				like()
 				LightBox.init()
-			}	
+			}else{
+				mediaTitle.forEach((media) => {
+					const listOfMedia = new Media(media)
+					listOfMedia.affichage()
+				})
+				like()
+				LightBox.init()	
+			}
 		})
 	}
 	launchListbox()	
