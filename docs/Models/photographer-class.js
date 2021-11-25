@@ -35,7 +35,7 @@ export default class Photographer {
 		picture.setAttribute("alt", "")
 		picture.setAttribute("class", "photo-profil")
 		avatar.appendChild(picture)
-		picture.src = "../Images/" + this.portrait
+		picture.src = "./docs/images/" + this.portrait
 
 		// Nom du photographe
 		const nameCard = document.createElement("h2")
@@ -156,6 +156,6 @@ export default class Photographer {
 		picture.setAttribute("alt", "")
 		picture.setAttribute("class", "photo-profil")
 		avatar.appendChild(picture)
-		picture.src = "../Images/" + this.portrait
+		picture.src = "./docs/Images/" + this.portrait
 	}
 }

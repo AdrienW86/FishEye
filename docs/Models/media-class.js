@@ -41,7 +41,7 @@ class Image extends Media {
 		image.setAttribute("alt", "photo")
 		image.setAttribute("alt-text", this.altText)
 		image.setAttribute("value", this.title)
-		image.src = "../images/" + this.photographerId + "/" + this.image
+		image.src = "./docs/images/" + this.photographerId + "/" + this.image
 		buttonCard.appendChild(image)
 
 		//Infos sur le média
@@ -102,7 +102,7 @@ class Video extends Media {
 		video1.setAttribute("alt", "vidéo")
 		video1.setAttribute("alt-text", this.altText)
 		video1.setAttribute("value", this.title)
-		video1.src = "../images/" + this.photographerId + "/" + this.video + "#t=0.1"
+		video1.src = "./docs/images/" + this.photographerId + "/" + this.video + "#t=0.1"
 		video1.setAttribute("type", "video/mp4")
 		buttonCard.appendChild(video1)
 
