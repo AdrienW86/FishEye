@@ -138,7 +138,6 @@ export default function createModal() {
 	closemodalbtn = document.querySelectorAll(".close-modal-btn")
 	closemodalbtn.forEach((btn) => btn.addEventListener("click", closeModal))
 	
-
 	submit = document.querySelectorAll("submit-btn")
 	submit.forEach((btn) => btn.addEventListener("click", validateForm))
 
@@ -204,11 +203,9 @@ export default function createModal() {
 		const  focusableElements =
 		"button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])"
 					
-		const firstFocusableElement = modal.querySelectorAll(focusableElements)[0] // get first element to be focused inside modal
+		const firstFocusableElement = modal.querySelectorAll(focusableElements)[0] // premier element focusable de la modale
 		const focusableContent = modal.querySelectorAll(focusableElements)
-		const lastFocusableElement = focusableContent[focusableContent.length - 1] // get last element to be focused inside modal
-			console.log (firstFocusableElement)	
-			console.log(lastFocusableElement)
+		const lastFocusableElement = focusableContent[focusableContent.length - 1] // dernier element focusable de la modale
 		document.addEventListener("keydown", function(e) {
 			let isTabPressed = e.key === "Tab" 
 			let escape = e.key === "Escape"
@@ -221,7 +218,7 @@ export default function createModal() {
 				closeModal()
 			} 
 		
-			if (e.shiftKey) { // if shift key pressed for shift + tab combination
+			if (e.shiftKey) { // si shift est pressé en même temps que Tab
 				if (document.activeElement === firstFocusableElement) {
 					lastFocusableElement.focus() // add focus for the last focusable element
 					e.preventDefault()
@@ -229,8 +226,8 @@ export default function createModal() {
 			}
 						
 			else { // if tab key is pressed
-				if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-					firstFocusableElement.focus() // add focus for the first focusable element
+				if (document.activeElement === lastFocusableElement) { // si le dernier element focuasble est l'element courant
+					firstFocusableElement.focus() // ajoute le focus pour le premier element focusable 
 					e.preventDefault()
 				}
 			}

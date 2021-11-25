@@ -14,22 +14,28 @@ export default async function Listbox  () {
 	const idPhotographer = params.get("id")	
 
 	// On recupère un objet avec le tableau des médias de chaque photographe
-	let selectedPhotographer = photographers.find(photo => {
-		const id = photo.id.toString()
-		return id === idPhotographer
+	let selectedPhotographer = photographers.find(photo => { // On cherche un photographer dans le tableau photographes
+		const id = photo.id.toString()		// on récupère le id de chaques photographes qu'on converti en string
+		return id === idPhotographer		// si l'id coorespond à l'id de l'url selected sera le tableau du photographe de l'url courante
 	})
+	console.log(selectedPhotographer)
 	// On fait correspondre l'id du photographe à celui du média
-	const medias = data.media
-	const selectedMedia = medias.filter(media => {
-		const idMedia = media.photographerId
-		return idMedia === selectedPhotographer.id
-	})
-	const filterMedia = (map, compareFn) => (a, b) => -compareFn(map(a), map(b))
-	const filterLikes = (media) => media.likes
-	const filterDate = (media) => new Date(media.date).getTime()
-	const filterTitle = (a, b) => a - b
-	const mediasLikes = [...selectedMedia].sort(filterMedia(filterLikes, filterTitle))
-	const mediasDate = [...selectedMedia].sort(filterMedia(filterDate, filterTitle))
+	const medias = data.media			// notre tableau de médias
+	const selectedMedia = medias.filter(media => {  // On filtre chaque média
+		const idMedia = media.photographerId  // On créé une constante pour récupérer chaque photographerId sur chaque Média
+		console.log(idMedia)
+		return idMedia === selectedPhotographer.id  // Si l'id d'un media correspond à l'id d'un photographe alors
+	})												// Selected media retourne un tableau avec les medias de photographId
+	console.log([...selectedMedia])
+	console.log(selectedMedia)
+	const filterMedia = (map, filtre) => (a, b) => filtre(map(a), map(b)) // Trie les éléments du tableau par ordre croissant
+	//const filterLikes =   // recup
+	//console.log(filterLikes)
+	//const filterDate = 
+	// filterTitle =   // console.log filterTitle
+	//console.log(filterTitle)
+	const mediasLikes = [...selectedMedia].sort(filterMedia((media) => media.likes, (a, b) => a - b))
+	const mediasDate = [...selectedMedia].sort(filterMedia((media) => new Date(media.date).getTime(), (a, b) => a - b))
 	const mediaTitle = selectedMedia.sort((a, b) => {
 		if (a.title < b.title) return -1
 		if (a.title > b.title) return 1

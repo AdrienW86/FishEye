@@ -7,9 +7,10 @@ fetch(datas)
 	.then(response => response.json())
 	.then(data => {
 		let photographers = data.photographers 
+
 		// Gestion des tags
 		const params = new URL(document.location).searchParams
-		let currentTag = params.get("hashtag")
+		let currentTag = params.get("hashtag") // on récupère le tag dans l'url
 
 		if(currentTag == null) {
 			photographers.forEach(photographer => {

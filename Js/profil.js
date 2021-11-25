@@ -16,9 +16,9 @@ fetch(datas)
 		const idPhotographer = params.get("id")
 				
 		// On recupère un objet avec le tableau des médias de chaque photographe
-		let selectedPhotographer = photographers.find(photo => {
-			const id = photo.id.toString()
-			return id === idPhotographer
+		let selectedPhotographer = photographers.find(photo => { // on récupère le tableau du photographe selectionné
+			const id = photo.id.toString() // on récupère l'id du tableau
+			return id === idPhotographer // on retourne l'id si le photographe actuel correspond à l'url
 		})
 
 		// Création de la carte de visite du photographe
