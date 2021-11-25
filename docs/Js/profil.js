@@ -4,7 +4,7 @@ import LightBox from "../Models/lightbox-class.js"
 import createModal from "../Utils/modal.js"
 import like from "../Utils/like.js"
 
-const datas = "/datas.json"
+const datas = "../docs/datas.json"
 
 fetch(datas)
 

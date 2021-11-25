@@ -3,7 +3,7 @@ import MediaFactory from "../Models/media-class.js"
 import like from "./like.js"
 
 export default async function Listbox  () {
-	const datas = "/datas.json"
+	const datas = "../docs/datas.json"
 	let response = await fetch(datas)
 	let data = await response.json()
 	console.log(data)

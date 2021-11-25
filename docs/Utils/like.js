@@ -1,5 +1,5 @@
 export default function like () {
-	const datas = "/datas.json"
+	const datas = "../docs/datas.json"
 	fetch(datas)	
 		.then(response => response.json())
 		.then(data => {		
