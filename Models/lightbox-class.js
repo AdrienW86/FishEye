@@ -1,22 +1,24 @@
 export default class LightBox {
 	static init () {
-		const links = Array.from(document.querySelectorAll(".media-single-photographer"))
-		let gallery = links.map(link => link.getAttribute("src"))
-		const titles = Array.from(document.querySelectorAll(".titre-media"))
-		let Arraytitles = titles.map(title => title.innerHTML)
+		const links = Array.from(document.querySelectorAll(".media-single-photographer"))  // On crée un tableau à partir de nos médias
+		let gallery = links.map(link => link.getAttribute("src"))			// On séléctionne l'attribut src pour avoir le chemin absolu de chaque médias
+		console.log (gallery)
+		const titles = Array.from(document.querySelectorAll(".titre-media")) // On crée un tableau à partir de nos titres médias
+		let Arraytitles = titles.map(title => title.innerHTML)			// On séléctionne pour chaque titre le contenu html de title
 		let main = document.getElementById("liste_media")
 		let banner = document.getElementById("banner")
 		
 		
 		links.forEach(link =>
-			link.addEventListener( "click", function (e) {
-				main.setAttribute("aria-hidden", "true")
+			link.addEventListener( "click", function (e) {     // Pour chaque lien on déclenche au clic une nouvelle lightbox
+				main.setAttribute("aria-hidden", "true")	   // avec les différents attributs aria nécessaire ainsi
 				main.style.display = "none"
 				banner.style.display ="none"
 				banner.setAttribute("aria-hidden", "true")
 				e.preventDefault()
-				new LightBox(e.currentTarget.getAttribute("src"), e.currentTarget.getAttribute("value"),
-					gallery, Arraytitles)
+				console.log(e.currentTarget)		// le media sur lequel on a cliqué
+				new LightBox(e.currentTarget.getAttribute("src"), e.currentTarget.getAttribute("value"), 
+					gallery, Arraytitles)		// On récupère la valeur pour le titre et le src pour le chemin vers le média
 			}))
 
 		// Clavier
@@ -56,16 +58,16 @@ export default class LightBox {
 		loader.classList.add("lightbox__loader")
 		const p = document.createElement("p")
 		p.classList.add("lightbox-title")
-		container.innerHTML = "" // evite d'afficher une deuxième image en dessous de la première
+		container.innerHTML = "" // évite d'afficher une deuxième image en dessous de la première
 		container.setAttribute("tabindex", "-1")
 		container.appendChild(loader)
 		container.focus()
-		
+		console.log(url)  // chemin vers l'image
 		if (url.includes("jpg")) {
 			const image = new Image()
 			image.setAttribute("tabindex", "0")
 			image.onload = () => {
-				container.removeChild(loader)
+				container.removeChild(loader)  // On efface le loader
 				container.appendChild(image)
 				container.appendChild(p)
 				this.url = url
@@ -117,6 +119,7 @@ export default class LightBox {
 		e.preventDefault()
 		let positionImage = this.gallery.findIndex(media => media === this.url)
 		let positionTitle = this.Arraytitles.findIndex((info) => info === this.title)
+		console.log(positionImage)
 
 		if (positionImage === this.gallery.length - 1) {
 			positionImage = -1

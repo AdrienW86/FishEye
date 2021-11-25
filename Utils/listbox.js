@@ -16,7 +16,7 @@ export default async function Listbox  () {
 	// On recupère un objet avec le tableau des médias de chaque photographe
 	let selectedPhotographer = photographers.find(photo => { // On cherche un photographer dans le tableau photographes
 		const id = photo.id.toString()		// on récupère le id de chaques photographes qu'on converti en string
-		return id === idPhotographer		// si l'id coorespond à l'id de l'url selected sera le tableau du photographe de l'url courante
+		return id === idPhotographer		// si l'id correspond à l'id de l'url selected sera le tableau du photographe de l'url courante
 	})
 	console.log(selectedPhotographer)
 	// On fait correspondre l'id du photographe à celui du média
@@ -29,13 +29,10 @@ export default async function Listbox  () {
 	console.log([...selectedMedia])
 	console.log(selectedMedia)
 	const filterMedia = (map, filtre) => (a, b) => filtre(map(a), map(b)) // Trie les éléments du tableau par ordre croissant
-	//const filterLikes =   // recup
-	//console.log(filterLikes)
-	//const filterDate = 
-	// filterTitle =   // console.log filterTitle
-	//console.log(filterTitle)
-	const mediasLikes = [...selectedMedia].sort(filterMedia((media) => media.likes, (a, b) => a - b))
-	const mediasDate = [...selectedMedia].sort(filterMedia((media) => new Date(media.date).getTime(), (a, b) => a - b))
+	const mediasLikes = [...selectedMedia].sort(filterMedia((media) => //  chaque element du tableau est trié
+		media.likes, (a, b) => a - b))  				// en comparant sa valeur par rapport à l'élément précédant
+	const mediasDate = [...selectedMedia].sort(filterMedia((media) => 
+		new Date(media.date).getTime(), (a, b) => a - b)) 
 	const mediaTitle = selectedMedia.sort((a, b) => {
 		if (a.title < b.title) return -1
 		if (a.title > b.title) return 1
