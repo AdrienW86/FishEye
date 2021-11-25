@@ -1,4 +1,7 @@
-
+* {
+    font-family: 'DM Sans', sans-serif; 
+    box-sizing: border-box;
+}
 header {
     width: 100%;
     display: -webkit-box;
@@ -17,55 +20,6 @@ header {
 p, p.description {
     line-height: 1.6;
     font-size: 1em
-}
-@media all and (max-device-width:480px) 
-
-{
-    body {
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-    }
-    main {
-        overflow: hidden;
-    }
-   nav.nav-tag {
-       display: -webkit-box;
-       display: -ms-flexbox;
-       display: flex;
-   }
-    div.tag-list 
-    {
-      display: none;
-      width: 100%;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-  }
-  a.tag {
-      display: block
-  }
-  div.box-logo {
-     
-      width: 48%;
-      margin: 0
-  }
-  div.box_title {
-      width: 48%
-  }
-  a.logo {
-    margin-top: 5px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 30px;
-    width: 120px;
-    background: url(../images/svg/logo-responsive.svg) center center no-repeat ;
-}
- h1.title {
-     font-size: 1em;
-     margin-right: 30px;
- }
 }
 
 body {
@@ -114,19 +68,31 @@ button.scroll:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position:absolute;
-    position: center;
+    position:relative;
+    right: 300px;
+    top: 5px;
     margin-top: 40px;
     margin-right: 2%;
     margin-left: 2%;
-
 }
+ @media all and (max-device-width:1230px) {
+     .tag-list {
+        position: relative;
+        top: 55px;
+        right: 150px;
+        flex-flow: wrap;
+        justify-content: space-between;
+        justify-content: center;
+        width: 60%
+     }
+ }
 
 .tag {
     text-decoration: none;
     height: 22px;
     margin-left: 3px;
     padding: 3px;
+    padding-bottom: 25px;
     left: 505px;
     top: 58px;
     background: white;
@@ -180,7 +146,7 @@ h1 {
     margin: 20px;
 }
 
-.header-card {
+a.header-card {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -194,7 +160,9 @@ h1 {
     text-decoration: none;    
     width: 400px;
     background-color: white;
-    border: 0px
+    border: 0px;
+    margin-bottom: 0;
+    padding-bottom: 0
 }
 
 .header-card:hover {
@@ -226,7 +194,10 @@ h2 {
             justify-content: center;
     font-size: 2.7em;
     width: 100%;
+    font-weight: normal;
     color:  rgba(211, 87, 60, 1);
+    margin-bottom: 0;
+    padding-bottom: 0
 }
 
 .main-card {
@@ -240,22 +211,39 @@ h2 {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+            margin-top: 0;
+            padding-top: 0
+            
 }
 
 h3 {
     text-align: center;
-    color: #901c1c;
+    color:rgba(144, 28, 28, 1);
+    font-weight: normal;  
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0
 }
 
 .description {
     text-align: center;
     font-size: 10px;
     color: rgba(0, 0, 0, 1);
+    font-weight: normal;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0
 }
 
 .price {
     text-align: center;
     color: rgba(117, 117, 117, 1);
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0
 }
 
 .footer-tag {
@@ -292,8 +280,8 @@ svg {
 .button-content, .modal-btn {
     font-size: 1.1em;
     font-weight: bold;
-    height: 30px;
-    width: 200px;
+    height: 50px;
+    width: 250px;
     border: 0px;
     border-radius: 8px;
     background-color: #Db8876;
@@ -304,3 +292,68 @@ img {
     width: 200px;
 }
 
+@media all and (max-device-width:768px) 
+
+{
+    body {
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+    }
+    #photographes {
+        overflow: hidden;
+        padding-top: 0
+    }
+   nav.nav-tag {
+       display: -webkit-box;
+       display: -ms-flexbox;
+       display: flex;
+   }
+    div.tag-list 
+    {
+      display: none;
+      width: 100%;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+  }
+  a.tag {
+      display: block
+  }
+  div.box-logo {   
+      width: 48%;
+      margin: 0
+  }
+  div.box_title {
+      width: 48%
+  }
+  .footer-tag-item {
+      font-size: 0.8em;
+  }
+  a.logo {
+    margin-top: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 30px;
+    width: 120px;
+    background: url(../images/svg/logo-responsive.svg) center center no-repeat ;
+}
+ h1.title {
+     font-size: 0.9em;
+     margin-right: 10px;
+ }
+ h2 {
+     font-size: 1.2em;
+     font-weight: bold
+    }
+ .button-content {
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 150px;
+    width: 300px;
+    border: 0px;
+    border-radius: 8px;
+    background-color: #Db8876;
+}
+}

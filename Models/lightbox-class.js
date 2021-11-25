@@ -1,5 +1,5 @@
 export default class LightBox {
-	static init () {
+	static init () {	    	
 		const links = Array.from(document.querySelectorAll(".media-single-photographer"))  // On crée un tableau à partir de nos médias
 		let gallery = links.map(link => link.getAttribute("src"))			// On séléctionne l'attribut src pour avoir le chemin absolu de chaque médias
 		console.log (gallery)
@@ -121,9 +121,9 @@ export default class LightBox {
 		let positionTitle = this.Arraytitles.findIndex((info) => info === this.title)
 		console.log(positionImage)
 
-		if (positionImage === this.gallery.length - 1) {
-			positionImage = -1
-			positionTitle = -1
+		if (positionImage === this.gallery.length - 1) {  
+			positionImage = -1			// Si on arrive à la fin du tableau, on retourne à l'index de début
+			positionTitle = -1			// idem pour le titre
 		}
 		this.loadMedia(
 			this.gallery[positionImage + 1],
@@ -137,7 +137,7 @@ export default class LightBox {
 		let positionTitle = this.Arraytitles.findIndex((info) => info === this.title)
 
 		if (positionImage == 0) {
-			positionImage = this.gallery.length
+			positionImage = this.gallery.length			// Si on est au début du tableau, on passe à la fin
 			positionTitle = this.Arraytitles.length
 		}
 		this.loadMedia(

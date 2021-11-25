@@ -1,15 +1,22 @@
 /***** Bannière *****/
-
-body {
-    padding: 5%
+* {
+    font-family: 'DM Sans', sans-serif; 
 }
 
+body {
+    padding: 5%;
+    box-sizing: content-box;
+}
+main {
+    margin: 0;
+    padding: 0
+}
 .logo {
     display: block;
     height: 50px;
     width: 200px;
     margin-bottom: 30px;
-    background: url(../images/svg/logo.svg) left center no-repeat ;  
+    background: url(../images/svg/logo.svg) left center no-repeat ; 
 }
 .logo:hover {
     cursor: pointer;
@@ -17,6 +24,9 @@ body {
 #banner {
     width: 100%;
     margin-bottom: 30px;
+}
+.listbox, #banner {
+    margin-left: 5%
 }
 .banner-photographer {
     display: -webkit-box;
@@ -26,21 +36,26 @@ body {
 }
 
     /*** Bloc Infos ***/
-
+p{
+    margin: 4 0 0 0px;
+    padding: 0
+}
 .description-photographer {
     width: 50%; 
-    padding-left: 30px;
     line-height: 1.6; 
-    margin-bottom: 20px 
 }
 
 h2 {
     font-size: 2.5em;
     color:  rgba(211, 87, 60, 1);
+    margin: 0;
+    padding: 0
 }
 
 h3 {
     color: #901c1c;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-tag {
@@ -60,7 +75,7 @@ a.footer-tag-item {
     border-radius: 11px;
     color: #901C1C;
     font-weight: bold;
-    padding: 2px 2px 2px 2px ;
+    padding: 0px 2px 25px 2px ;
     margin-right: 5px;
 }
 
@@ -121,9 +136,13 @@ a.footer-tag-item {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    width: 100%;   
+    width: 100%;  
+    padding: 0px; 
 }
-
+#liste_media {
+    padding: 0;
+    margin: 0;
+}
 .media-card {
     width: 355px;
     height: 355px;
@@ -221,7 +240,9 @@ span {
     height: 100%;
     background: rgba(219, 136, 118, 1);    
 }
-
+a.modal-btn {
+    padding-bottom: 35px
+}
 .close-modal-btn {
     width: 40px;
     height: 40px;
@@ -373,7 +394,7 @@ textarea {
     margin-top: 10px;
 }
 
-@media all and (max-device-width:480px) {
+@media screen and (max-device-width:768px) {
     body {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -397,6 +418,8 @@ textarea {
         overflow: hidden;
         width: 100%;
         margin: 0px;
+        padding-left: 5%;
+        padding-right: 5%
     }
     section.banner-photographer {
         margin: 0px;
@@ -406,9 +429,15 @@ textarea {
         margin-bottom: 30px;
     }
     .logo {
-        position: absolute;
-        left: 10px;
-        top: 10px;
+
+        margin: 20px 0 0 20px 
+    }
+    a.modal-btn {
+        position: fixed;
+        bottom: 30px
+    }
+    .sticker {
+        display: none
     }
     main {
         display: -webkit-box;
@@ -457,6 +486,7 @@ textarea {
     .photo-profil {
         display: -webkit-box;
         display: -ms-flexbox;
+        display: block;
         display: flex;
         position: relative;
         top: 37px;
@@ -468,15 +498,8 @@ textarea {
         -o-object-fit: cover;
            object-fit: cover;
     }
-    .single-avatar {
-        display: none
-    }
-    ul {  
-        position: relative;
-        right: 15%  ;
-        width: 100%; 
-    }
-       
+    
+      
     .sticker {
         z-index: 10;
         width: 100%;

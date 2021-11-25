@@ -130,9 +130,7 @@ export default async function Listbox  () {
 			list.appendChild(box)
 			e.stopPropagation()
 			this.nextSibling.classList.toggle("select-hide")
-			this.classList.toggle("active")
-
-		
+			this.classList.toggle("active")		
 
 			if(newSelect.innerHTML == "popularité" || newSelect.innerHTML == null) {
 				selection1.remove()

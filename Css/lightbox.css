@@ -1,3 +1,7 @@
+* {
+    font-family: 'DM Sans', sans-serif; 
+    box-sizing: border-box;
+}
 .box {
     padding: 16px;
     display: -ms-grid;
@@ -14,12 +18,8 @@
     width: 100%;
 }
 
-.box video {
-    display: block;
-    width: 100%;
-}
 
-.lightbox {
+.lightbox  {
     position: fixed;
     top: 0;
     left: 0;
@@ -115,9 +115,10 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
-    min-height: 100vh;
+    max-height: 100vh;
 }
 
 .lightbox__loader {
@@ -130,6 +131,21 @@
    color :rgba(144, 28, 28, 1);
    width: 20%;
    margin-right: 70%
+}
+
+@media screen and (max-device-width:760px) {
+    .lightbox__container {
+     position: relative;
+     top: 40%;
+      width: 90%;
+      height: 30%;
+      margin-left: 5%;
+      margin-right: 5%;     
+    }  
+    .lightbox-next, .lightbox-prev {
+        position: absolute;
+        top: 70px;
+    }  
 }
 
 @-webkit-keyframes lightboxIn {
