@@ -7,8 +7,6 @@ fetch(datas)
 	.then(response => response.json())
 	.then(data => {
 		let photographers = data.photographers 
-		const medias = data.media				
-	console.log(photographers)
 		// Gestion des tags
 		const params = new URL(document.location).searchParams
 		let currentTag = params.get("hashtag")
