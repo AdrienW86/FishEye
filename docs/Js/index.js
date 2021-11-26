@@ -2,7 +2,12 @@ import Photographer from "../Models/photographer-class.js"
 import createHeader from "../Utils/header.js" 
 createHeader()
 const datas = "../docs/datas.json"	
-fetch(datas)
+fetch(datas, {
+	headers : { 
+		"Content-Type": "application/json",
+		"Accept": "application/json"
+	}
+})
 	.then(response => response.json())
 	.then(data => {
 		let photographers = data.photographers 
