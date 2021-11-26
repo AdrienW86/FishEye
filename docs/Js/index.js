@@ -1,7 +1,7 @@
 import Photographer from "../Models/photographer-class.js"
 import createHeader from "../Utils/header.js" 
 createHeader()
-const datas = "../docs/datas.json"	
+const datas = "../datas.json"	
 fetch(datas, {
 	headers : { 
 		"Content-Type": "application/json",
