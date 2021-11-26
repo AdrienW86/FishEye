@@ -26,8 +26,8 @@ main {
     width: 100%;
     margin-bottom: 30px;
 }
-.listbox, #banner {
-    margin-left: 5%
+.listbox, h3.city, h2.photographer-name, div.footer-tag, p.description {
+    padding-left: 5%
 }
 .banner-photographer {
     display: -webkit-box;
@@ -64,7 +64,8 @@ h3 {
     display: -ms-flexbox;
     display: flex;
     width: 400px; 
-    padding: 0
+    padding: 0;
+    padding-bottom: 8px
 }
 
 a.footer-tag-item { 
