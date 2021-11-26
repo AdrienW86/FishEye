@@ -32,7 +32,7 @@ export default class Photographer {
 
 		// Photo de profil
 		const picture = document.createElement("img")
-		picture.setAttribute("alt", "")
+		picture.setAttribute("alt", "photo du photographe")
 		picture.setAttribute("class", "photo-profil")
 		avatar.appendChild(picture)
 		picture.src = "./docs/images/" + this.portrait
@@ -153,7 +153,7 @@ export default class Photographer {
 
 		// Photo de profil
 		const picture = document.createElement("img")
-		picture.setAttribute("alt", "")
+		picture.setAttribute("alt", "photo du photographe")
 		picture.setAttribute("class", "photo-profil")
 		avatar.appendChild(picture)
 		picture.src = "./docs/Images/" + this.portrait
