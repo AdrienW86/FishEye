@@ -156,6 +156,6 @@ export default class Photographer {
 		picture.setAttribute("alt", "photo du photographe")
 		picture.setAttribute("class", "photo-profil")
 		avatar.appendChild(picture)
-		picture.src = "./docs/Images/" + this.portrait
+		picture.src = "./docs/images/" + this.portrait
 	}
 }
