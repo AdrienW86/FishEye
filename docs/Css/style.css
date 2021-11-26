@@ -76,11 +76,8 @@ button.scroll:hover {
     height: 50px;
     width: 50%;
     position: relative;
-    top: 65px;
-   
-   
+    top: 65px; 
 }
-
 
 .tag {
     text-decoration: none;
@@ -237,8 +234,7 @@ h2 {
         -ms-flex-pack: center;
             justify-content: center;
             margin-top: 0;
-            padding-top: 0
-            
+            padding-top: 0           
 }
 
 h3 {
@@ -317,9 +313,7 @@ img {
     width: 200px;
 }
 
-@media all and (max-device-width:768px) 
-
-{
+@media all and (max-device-width:768px) {
     body {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
@@ -377,7 +371,6 @@ img {
      width: 100%;
     position: relative;
     top: -10px;
-
  }
  h2 {
      font-size: 1.2em;

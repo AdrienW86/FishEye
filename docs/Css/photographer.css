@@ -403,7 +403,7 @@ textarea {
     margin-top: 10px;
 }
 
-@media screen and (max-device-width:768px) {
+@media all and (max-device-width:768px) {
     body {
         display: -webkit-box;
         display: -ms-flexbox;
