@@ -16,7 +16,6 @@ export default function createHeader() {
 	let logo = document.createElement("a")
 	logo.setAttribute("class", "logo")
 	logo.setAttribute("aria-label", "logo du site")
-	logo.setAttribute("alt", "Fisheye Home page")
 	logo.setAttribute("alt-text", "lien avec le logo de Fisheye qui vous ramene sur la page d'accueil index.html ")
 	logo.setAttribute( "href","./index.html")
 			
