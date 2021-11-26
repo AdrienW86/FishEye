@@ -4,7 +4,12 @@ import like from "./like.js"
 
 export default async function Listbox  () {
 	const datas = "../datas.json"
-	let response = await fetch(datas)
+	let response = await fetch(datas, {
+		headers : { 
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		}
+	})
 	let data = await response.json()
 	console.log(data)
     

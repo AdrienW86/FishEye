@@ -1,6 +1,11 @@
 export default function like () {
 	const datas = "../datas.json"
-	fetch(datas)	
+	fetch(datas, {
+		headers : { 
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		}
+	})	
 		.then(response => response.json())
 		.then(data => {		
 		// Récupération de l'id du photographe dans l'url
