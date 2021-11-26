@@ -50,7 +50,7 @@ class Image extends Media {
 		mediaCard.appendChild(detailsMedia)
 
 		// Titre du média
-		const titleMedia = document.createElement("p")
+		const titleMedia = document.createElement("h4")
 		titleMedia.setAttribute("class", "titre-media")
 		titleMedia.innerHTML = this.title
 		detailsMedia.appendChild(titleMedia)
@@ -117,7 +117,7 @@ class Video extends Media {
 		mediaCard.appendChild(detailsMedia)
 
 		// Titre du média
-		const titleMedia = document.createElement("p")
+		const titleMedia = document.createElement("h4")
 		titleMedia.setAttribute("class", "titre-media")
 		titleMedia.innerHTML = this.title
 		detailsMedia.appendChild(titleMedia)

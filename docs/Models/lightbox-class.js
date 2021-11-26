@@ -56,7 +56,7 @@ export default class LightBox {
 		const container = this.element.querySelector(".lightbox__container")
 		const loader = document.createElement("div")
 		loader.classList.add("lightbox__loader")
-		const p = document.createElement("p")
+		const p = document.createElement("h2")
 		p.classList.add("lightbox-title")
 		container.innerHTML = "" // évite d'afficher une deuxième image en dessous de la première
 		container.setAttribute("tabindex", "-1")

@@ -35,7 +35,7 @@ export default async function Listbox  () {
 	console.log(selectedMedia)
 	const filterMedia = (map, filtre) => (a, b) => filtre(map(a), map(b)) // Trie les éléments du tableau par ordre croissant
 	const mediasLikes = [...selectedMedia].sort(filterMedia((media) => //  chaque element du tableau est trié
-		media.likes, (a, b) => a - b))  				// en comparant sa valeur par rapport à l'élément précédant
+		media.likes, (a, b) => b - a))  				// en comparant sa valeur par rapport à l'élément précédant
 	const mediasDate = [...selectedMedia].sort(filterMedia((media) => 
 		new Date(media.date).getTime(), (a, b) => a - b)) 
 	const mediaTitle = selectedMedia.sort((a, b) => {

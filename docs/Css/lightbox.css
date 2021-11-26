@@ -130,7 +130,9 @@
 .lightbox-title {
    color :rgba(144, 28, 28, 1);
    width: 20%;
-   margin-right: 70%
+   margin-right: 70%;
+   font-size: 1em;
+   font-weight: normal
 }
 
 @media screen and (max-device-width:760px) {

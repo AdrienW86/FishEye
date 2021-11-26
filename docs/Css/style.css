@@ -40,52 +40,47 @@ button.scroll {
 button.scroll:hover {
     cursor: pointer;
 }
-
+.box-logo {
+    display: flex;
+    width: 20%;
+    height: 50px
+}
 .logo {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
-    position:absolute;
-    left: 10px;
+    display: flex;  
+    display: inline-block;
     height: 50px;
-    width: 240px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    background: url(../images/svg/logo.svg) center center no-repeat ;
-    
+    width:100%;
+    margin: 2%;
+    position: relative;
+    top: 50px;
+    background: url(../images/svg/logo.svg) center center no-repeat ;   
 }
 
 .nav-tag {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    justify-content: space-around;
     width: 100%;  
+    height: 70px;
     -ms-flex-pack: distribute;  
-        justify-content: space-around;
+    justify-content: space-around;
 }
 
 .tag-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position:relative;
-    right: 300px;
-    top: 5px;
-    margin-top: 40px;
-    margin-right: 2%;
-    margin-left: 2%;
+    height: 50px;
+    width: 50%;
+    position: relative;
+    top: 65px;
+   
+   
 }
- @media all and (max-device-width:1230px) {
-     .tag-list {
-        position: relative;
-        top: 55px;
-        right: 150px;
-        flex-flow: wrap;
-        justify-content: space-between;
-        justify-content: center;
-        width: 60%
-     }
- }
+
 
 .tag {
     text-decoration: none;
@@ -113,14 +108,44 @@ button.scroll:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 310px;;
+    width: 25%;
 }
+
 h1 {
+    display: flex;
     color: #901C1C;
-    font-size: 2.5em;
-    position: absolute;
-    right: 1%
-    
+    font-size: 2em; 
+    position: relative;
+    top: 30px;
+    font-weight: normal;
+
+}
+
+@media all and (max-device-width:1260px) {
+    .tag-list {
+       position: relative;
+       right: 170px;
+       margin: auto;
+       top: 105px;
+       flex-flow: wrap;
+       justify-content: space-between;
+       justify-content: center;
+       width: 100%
+    }
+    .box-logo {
+        width: 100%;
+        margin-left: 20px;
+    }
+    .logo {
+        margin-left: 20px;
+        position: absolute;
+        top: 30px;
+        left: -270px
+    }
+    h1 {
+        position: absolute;
+        right: 100px
+    }
 }
 
 /******** Carte des photographes ********/
@@ -311,14 +336,22 @@ img {
    }
     div.tag-list 
     {
-      display: none;
+     position: absolute;
       width: 100%;
+      left: 1px;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
   }
   a.tag {
-      display: block
+     font-size: 0.5em;
+     height: 17px;
+     margin: 0;
+     padding:1px;
+     width: 24%
   }
   div.box-logo {   
       width: 48%;
@@ -335,13 +368,16 @@ img {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 30px;
+    height: 50px;
     width: 120px;
     background: url(../images/svg/logo-responsive.svg) center center no-repeat ;
 }
  h1.title {
-     font-size: 0.9em;
-     margin-right: 10px;
+     font-size: 1.5em;
+     width: 100%;
+    position: relative;
+    top: -10px;
+
  }
  h2 {
      font-size: 1.2em;
